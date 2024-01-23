@@ -1,0 +1,1 @@
+web: gunicorn nineties_football_shirts.wsgi
