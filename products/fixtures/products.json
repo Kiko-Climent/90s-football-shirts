@@ -1,0 +1,122 @@
+[{
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "0001",
+            "team": "Ajax '90",
+            "season": "90-91",
+            "brand": "Umbro",
+            "description": "One the most beloved from our users, style and colors just match perfect. A young Bergkamp used to weare it right before moving to Arsenal",
+            "price": 55.99,
+            "category": 5,
+            "rating": 4.8,
+            "image": "ajax90.webp"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "0002",
+            "team": "Argentina '94",
+            "season": "94-95",
+            "brand": "Adidas",
+            "description": "The shirt that used Argentina during the U.S.A World Cup in 1994, the last tournament that played Maradona, a long with him Batistuta, Redondo or Simeone, to name a few, made an amazing squad",
+            "price": 49.99,
+            "category": 7,
+            "rating": 4.7,
+            "image": "argentina94.webp"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "0003",
+            "team": "Arsenal '95",
+            "season": "95-96",
+            "brand": "Nike",
+            "description": "The Gunners reached the Cup Winners' Cup with this jersey",
+            "price": 55.99,
+            "category": 1,
+            "rating": 4.7,
+            "image": "arsenal95away.webp"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "0004",
+            "team": "Atletico de Madrid '96",
+            "season": "96-97",
+            "brand": "Puma",
+            "description": "Used during the season when the 'rojiblancos' conquered the league and cup.",
+            "price": 45.99,
+            "category": 2,
+            "rating": 4.6,
+            "image": "atletico97.webp"
+        }
+    },
+    {
+        "pk":5,
+        "model":"products.product",
+        "fields":{
+           "sku":"0005",
+           "team":"Bayern München '96",
+           "season": "96-97",
+           "brand": "Adidas",
+           "description": "Worn by the likes of Lothar Matthäus, Mehmet Scholl or Jürgen Klinsmann among many others.",
+           "price":47.99,
+           "category": 4,
+           "rating":4.7,
+           "image":"bayern97.webp"
+        }
+     },
+     {
+        "pk":6,
+        "model":"products.product",
+        "fields":{
+           "sku":"0006",
+           "team":"Internationale '97",
+           "season": "96-97",
+           "brand": "Umbro",
+           "description": "Worn by Ronaldo Nazario",
+           "price":49.99,
+           "category": 3,
+           "rating":4.7,
+           "image":"inter97.webp"
+        }
+     },
+     {
+        "pk":7,
+        "model":"products.product",
+        "fields":{
+           "sku":"0007",
+           "team":"Ireland '91",
+           "season": "91-92",
+           "brand": "Adidas",
+           "description": "Iconic and stuning tricot from Eire",
+           "price":55.99,
+           "category": 6,
+           "rating":4.7,
+           "image":"ireland91.webp"
+        }
+     },
+     {
+        "pk":8,
+        "model":"products.product",
+        "fields":{
+           "sku":"0008",
+           "team":"Nigeria '94",
+           "season": "94-95",
+           "brand": "Adidas",
+           "description": "Worn by Nigeria National team during U.S.A World Cup in 1994",
+           "price":59.99,
+           "category": 8,
+           "rating":4.7,
+           "image":"ireland91.webp"
+        }
+     }
+
+]

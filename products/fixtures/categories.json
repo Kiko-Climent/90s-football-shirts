@@ -1,0 +1,66 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "premiere_league",
+            "friendly_name": "Premiere League"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "la_liga",
+            "friendly_name": "La Liga"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "calcio",
+            "friendly_name": "Calcio"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "bundesliga",
+            "friendly_name": "Bundesliga"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.category",
+        "fields": {
+            "name": "other_leagues",
+            "friendly_name": "Other Leagues"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+            "name": "europe",
+            "friendly_name": "Europe"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.category",
+        "fields": {
+            "name": "america",
+            "friendly_name": "America"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.category",
+        "fields": {
+            "name": "rest_of_the_world",
+            "friendly_name": "Rest of the World"
+        }
+    }
+]
