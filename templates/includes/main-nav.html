@@ -16,11 +16,11 @@
                 Clubs
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Premiere League</a>
-                <a href="" class="dropdown-item">La Liga</a>
-                <a href="" class="dropdown-item">Calcio</a>
-                <a href="" class="dropdown-item">Bundesliga</a>
-                <a href="" class="dropdown-item">Others</a>
+                <a href="{% url 'products' %}?category=premiere_league" class="dropdown-item">Premiere League</a>
+                <a href="{% url 'products' %}?category=la_liga" class="dropdown-item">La Liga</a>
+                <a href="{% url 'products' %}?category=calcio" class="dropdown-item">Calcio</a>
+                <a href="{% url 'products' %}?category=bundesliga" class="dropdown-item">Bundesliga</a>
+                <a href="{% url 'products' %}?category=other_leagues" class="dropdown-item">Others</a>
             </div>
         </li>
 
