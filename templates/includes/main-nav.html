@@ -5,8 +5,8 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -15,8 +15,8 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Clubs
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="{% url 'products' %}?category=premiere_league" class="dropdown-item">Premiere League</a>
+            <div class="dropdown-menu border-0" aria-labelledby="clubs-link">
+                <a href="{% url 'products' %}?category=premiere_league" class="clubs-link">Premiere League</a>
                 <a href="{% url 'products' %}?category=la_liga" class="dropdown-item">La Liga</a>
                 <a href="{% url 'products' %}?category=calcio" class="dropdown-item">Calcio</a>
                 <a href="{% url 'products' %}?category=bundesliga" class="dropdown-item">Bundesliga</a>
@@ -25,21 +25,21 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="national-teams-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 National Teams
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Europe</a>
-                <a href="" class="dropdown-item">America</a>
-                <a href="" class="dropdown-item">Rest of the World</a>
+            <div class="dropdown-menu border-0" aria-labelledby="national-teams-link">
+                <a href="{% url 'products' %}?category=europe" class="dropdown-item">Europe</a>
+                <a href="{% url 'products' %}?category=america" class="dropdown-item">America</a>
+                <a href="{% url 'products' %}?category=rest_of_the_world" class="dropdown-item">Rest of the World</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="brands-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Brands
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+            <div class="dropdown-menu border-0" aria-labelledby="brands-link">
                 <a href="" class="dropdown-item">Adidas</a>
                 <a href="" class="dropdown-item">Nike</a>
                 <a href="" class="dropdown-item">Umbro</a>
