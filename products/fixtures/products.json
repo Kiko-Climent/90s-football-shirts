@@ -162,6 +162,141 @@
             "rating": 4.8,
             "image": "spain94.webp"
         }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "sku": "0012",
+            "team": "West Ham United '99",
+            "season": "99-00",
+            "brand": "Fila",
+            "description": "The iconic 1999 from the london 'hammers', sponsored by Dr Martins. You can't get cooler than this",
+            "price": 59.99,
+            "category": 1,
+            "rating": 4.9,
+            "image": "westham99.webp"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "sku": "0013",
+            "team": "Chelsea '95 (Away)",
+            "season": "95-96",
+            "brand": "Umbro",
+            "description": "Gianfranco Zola, Gianlucca Vialli, and many others",
+            "price": 44.99,
+            "category": 1,
+            "rating": 4.5,
+            "image": "chelsea95.webp"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "sku": "0014",
+            "team": "Real Madrid '96",
+            "season": "96-97",
+            "brand": "Kelme",
+            "description": "Capello led an amazing squad that would win first Spanish Liga and Champions League one year later. The 'pre-galacticos' team would feature ballers from the likes of Raul, Mijatovic, Redondo, Suker and Roberto Carlos just to name a few",
+            "price": 55.99,
+            "category": 2,
+            "rating": 4.8,
+            "image": "real96.webp"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "sku": "0015",
+            "team": "Deportivo La Coruña '93",
+            "season": "93-94",
+            "brand": "Umbro",
+            "description": "The mighty 'Super-Depor' and unvelievable squad, comanded by the brazilians Bebeto, Donato and Mauro Silva",
+            "price": 53.99,
+            "category": 2,
+            "rating": 4.6,
+            "image": "deportivo94.webp"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "sku": "0016",
+            "team": "Olimpique Marseille '91 (Away)",
+            "season": "91-92",
+            "brand": "Adidas",
+            "description": "The only Champions League that the french team owns was under this tricot, Desailly, Deschamps, Papin among others.",
+            "price": 52.99,
+            "category": 5,
+            "rating": 4.7,
+            "image": "marseille91.webp"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "sku": "0017",
+            "team": "Germany '90",
+            "season": "90-91",
+            "brand": "Adidas",
+            "description": "World Cup champions in Italy'90, one of the most iconics tricots from Adidas",
+            "price": 55.99,
+            "category": 6,
+            "rating": 4.8,
+            "image": "spain94.webp"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "sku": "0018",
+            "team": "River Plate '94",
+            "season": "94-95",
+            "brand": "Adidas",
+            "description": "Enzo 'El Principe' Francescoli made it to win Libertadores Cup in 1994",
+            "price": 49.99,
+            "category": 5,
+            "rating": 4.4,
+            "image": "river94.webp"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "sku": "0019",
+            "team": "Paris Saint Germain '9",
+            "season": "95-96",
+            "brand": "Nike",
+            "description": "George Weah, David Ginola",
+            "price": 45.99,
+            "category": 5,
+            "rating": 4.4,
+            "image": "psg95.webp"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "sku": "0020",
+            "team": "Japan '94",
+            "season": "94-95",
+            "brand": "Asics",
+            "description": "One of the most beautill tricots ever made",
+            "price": 55.99,
+            "category": 8,
+            "rating": 4.8,
+            "image": "japan94.webp"
+        }
     }
 
 ]
