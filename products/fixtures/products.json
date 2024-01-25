@@ -18,7 +18,7 @@
         "model": "products.product",
         "fields": {
             "sku": "0002",
-            "team": "Argentina '94",
+            "team": "Argentina '94 (Away)",
             "season": "94-95",
             "brand": "Adidas",
             "description": "The shirt that used Argentina during the U.S.A World Cup in 1994, the last tournament that played Maradona, a long with him Batistuta, Redondo or Simeone, to name a few, made an amazing squad",
@@ -33,7 +33,7 @@
         "model": "products.product",
         "fields": {
             "sku": "0003",
-            "team": "Arsenal '95",
+            "team": "Arsenal '95 (Away)",
             "season": "95-96",
             "brand": "Nike",
             "description": "The Gunners reached the Cup Winners' Cup with this jersey",
@@ -59,64 +59,109 @@
         }
     },
     {
-        "pk":5,
-        "model":"products.product",
-        "fields":{
-           "sku":"0005",
-           "team":"Bayern München '96",
-           "season": "96-97",
-           "brand": "Adidas",
-           "description": "Worn by the likes of Lothar Matthäus, Mehmet Scholl or Jürgen Klinsmann among many others.",
-           "price":47.99,
-           "category": 4,
-           "rating":4.7,
-           "image":"bayern97.webp"
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "0005",
+            "team": "Bayern München '96",
+            "season": "96-97",
+            "brand": "Adidas",
+            "description": "Worn by the likes of Lothar Matthäus, Mehmet Scholl or Jürgen Klinsmann among many others.",
+            "price": 47.99,
+            "category": 4,
+            "rating": 4.7,
+            "image": "bayern97.webp"
         }
-     },
-     {
-        "pk":6,
-        "model":"products.product",
-        "fields":{
-           "sku":"0006",
-           "team":"Internationale '97",
-           "season": "96-97",
-           "brand": "Umbro",
-           "description": "Worn by Ronaldo Nazario",
-           "price":49.99,
-           "category": 3,
-           "rating":4.7,
-           "image":"inter97.webp"
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "0006",
+            "team": "Internationale '97",
+            "season": "96-97",
+            "brand": "Umbro",
+            "description": "Worn by Ronaldo Nazario",
+            "price": 49.99,
+            "category": 3,
+            "rating": 4.7,
+            "image": "inter97.webp"
         }
-     },
-     {
-        "pk":7,
-        "model":"products.product",
-        "fields":{
-           "sku":"0007",
-           "team":"Ireland '91",
-           "season": "91-92",
-           "brand": "Adidas",
-           "description": "Iconic and stuning tricot from Eire",
-           "price":55.99,
-           "category": 6,
-           "rating":4.7,
-           "image":"ireland91.webp"
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "0007",
+            "team": "Ireland '91",
+            "season": "91-92",
+            "brand": "Adidas",
+            "description": "Iconic and stuning tricot from Eire",
+            "price": 55.99,
+            "category": 6,
+            "rating": 4.7,
+            "image": "ireland91.webp"
         }
-     },
-     {
-        "pk":8,
-        "model":"products.product",
-        "fields":{
-           "sku":"0008",
-           "team":"Nigeria '94",
-           "season": "94-95",
-           "brand": "Adidas",
-           "description": "Worn by Nigeria National team during U.S.A World Cup in 1994",
-           "price":59.99,
-           "category": 8,
-           "rating":4.7,
-           "image":"ireland91.webp"
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "0008",
+            "team": "Nigeria '94 (Away)",
+            "season": "94-95",
+            "brand": "Adidas",
+            "description": "Worn by Nigeria National team during U.S.A World Cup in 1994",
+            "price": 59.99,
+            "category": 8,
+            "rating": 4.7,
+            "image": "nigeria94.webp"
         }
-     }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "0009",
+            "team": "Borussia Dortmund '95",
+            "season": "95-96",
+            "brand": "Nike",
+            "description": "",
+            "price": 59.99,
+            "category": 4,
+            "rating": 4.6,
+            "image": "dortmund96.webp"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "sku": "0010",
+            "team": "A.C Milan '93",
+            "season": "92-93",
+            "brand": "Lotto",
+            "description": "",
+            "price": 44.99,
+            "category": 3,
+            "rating": 4.5,
+            "image": "milan93.webp"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "sku": "0011",
+            "team": "Spain '94",
+            "season": "94-95",
+            "brand": "Adidas",
+            "description": "",
+            "price": 49.99,
+            "category": 6,
+            "rating": 4.8,
+            "image": "spain94.webp"
+        }
+    }
 
 ]
