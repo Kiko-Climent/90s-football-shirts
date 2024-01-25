@@ -16,7 +16,7 @@
                 Clubs
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clubs-link">
-                <a href="{% url 'products' %}?category=premiere_league" class="clubs-link">Premiere League</a>
+                <a href="{% url 'products' %}?category=premiere_league" class="dropdown-item">Premiere League</a>
                 <a href="{% url 'products' %}?category=la_liga" class="dropdown-item">La Liga</a>
                 <a href="{% url 'products' %}?category=calcio" class="dropdown-item">Calcio</a>
                 <a href="{% url 'products' %}?category=bundesliga" class="dropdown-item">Bundesliga</a>
@@ -40,11 +40,11 @@
                 Brands
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="brands-link">
-                <a href="" class="dropdown-item">Adidas</a>
-                <a href="" class="dropdown-item">Nike</a>
-                <a href="" class="dropdown-item">Umbro</a>
-                <a href="" class="dropdown-item">Puma</a>
-                <a href="" class="dropdown-item">Others</a>
+                <a href="{% url 'products' %}?brand=Adidas" class="dropdown-item">Adidas</a>
+                <a href="{% url 'products' %}?brand=Nike" class="dropdown-item">Nike</a>
+                <a href="{% url 'products' %}?brand=Umbro" class="dropdown-item">Umbro</a>
+                <a href="{% url 'products' %}?brand=Puma" class="dropdown-item">Puma</a>
+                <a href="{% url 'products' %}?brand=Others" class="dropdown-item">Others</a>
             </div>
         </li>
     </ul>

@@ -11,6 +11,7 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+    brands = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -31,7 +32,13 @@ def all_products(request):
             products = products.filter(category__name__in=categories)
             print(categories)
             category = Category.objects.filter(name__in=categories)
-
+        
+        
+        if 'brand' in request.GET:
+            brands = request.GET['brand'].split(',')
+            products = products.filter(brand__in=brands)
+            print(brands)
+            
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -49,6 +56,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'current_brands': brands,
     }
 
     return render(request, 'products/products.html', context)
