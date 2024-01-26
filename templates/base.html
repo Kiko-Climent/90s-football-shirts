@@ -112,6 +112,11 @@
                 {% include 'includes/main-nav.html' %}
             </nav>
         </div>
+        <div id="shipping-banner" class="row text-center">
+            <div class="col bg-black text-white">
+                <h4 class="logo-font my-1">Free shipping on orders over €{{ free_shipping_threshold }}!</h4>                
+            </div>            
+        </div>
     </header>
     {% if messages %}
         <div class="message-container"></div>
