@@ -47,9 +47,9 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-50">
-                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search">
+                        <input class="form-control border border-black" type="text" name="q" placeholder="Search">
                         <div class="input-group-append">
-                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                            <button class="form-control btn btn-black border border-black" type="submit">
                                 <span class="icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -68,7 +68,7 @@
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <div><i class="fas fa-circle-user fa-lg"></i></div>
                                 <p class="my-0">My Account</p>
                             </div>
                         </a>
@@ -114,7 +114,7 @@
         </div>
         <div id="shipping-banner" class="row text-center">
             <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Free shipping on orders over €{{ free_shipping_threshold }}!</h4>                
+                <h4 class="logo-font my-1">Free shipping on orders over {{ free_shipping_threshold }}€!</h4>                
             </div>            
         </div>
     </header>

@@ -22,6 +22,9 @@
         <div class="row">
             <div class="col">
                 {% if shopping_cart_items %}
+                {{ shopping_cart_items }}
+                <br>
+                <br>
                     <div class="table-responsive rounded">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
@@ -70,13 +73,13 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                    <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg">
                                         <span class="icon">
-                                            <i class="fas fa-chevron-rounded-left"></i>
+                                            <i class="fas fa-chevron-circle-left"></i>
                                         </span>
-                                        <span class="text-uppercase">Continue Shopping</span>
+                                        <span class="text-uppercase">More Shopping</span>
                                     </a>
-                                    <a href="" class="btn btn-black rounded-0 btn-lg">
+                                    <a href="" class="btn btn-black btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -92,7 +95,7 @@
                         <span class="icon">
                             <i class="fas fa-chevron-circle-left"></i>
                         </span>
-                        <span>Continue Shopping</span>
+                        <span>More Shopping</span>
                     </a>
                 {% endif %}
             </div>

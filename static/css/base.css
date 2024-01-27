@@ -31,17 +31,20 @@ body {
     background: black;
     color: white;
     min-width: 260px;
+    border-radius: 5rem;
 }
 
 .btn-black {
     background: black;
     color: white;
+    border-radius: 5rem;
 }
 
 .btn-outline-black {
     background: white;
     color: black !important; /* use important to override link colors for <a> elements */
     border: 1px solid black;
+    border-radius: 5rem;
 }
 
 .btn-outline-black:hover,
@@ -71,6 +74,9 @@ body {
 
 .bg-black {
     background: #000 !important;
+    border-radius: 5rem;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .overlay {
@@ -81,6 +87,10 @@ body {
 	position: fixed;
 	background: white;
 	z-index: -1;
+}
+
+.form-control {
+    border-radius: 5rem;
 }
 
 /* a.category-badge > span.badge:hover {
