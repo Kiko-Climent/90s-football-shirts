@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 
 
 def view_shopping_cart(request):
@@ -30,3 +30,29 @@ def add_to_shopping_cart(request, item_id):
 
     request.session['shopping_cart'] = shopping_cart
     return redirect(redirect_url)
+
+def update_shopping_cart(request, item_id):
+
+    quantity = int(request.POST.get('quantity'))
+    
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
+    shopping_cart = request.session.get('shopping_cart', {})
+
+    if size:
+        if quantity > 0:
+            shopping_cart[item_id]['items_by_size'][size] = quantity
+        else:
+            del shopping_cart[item_id]['items_by_size'][size]
+    else:       
+
+        if quantity > 0:
+            shopping_cart[item_id] = quantity
+        else:
+            shopping_cart.pop[item_id]
+
+    request.session['shopping_cart'] = shopping_cart
+    return redirect(reverse('shopping_cart'))
+
+    
