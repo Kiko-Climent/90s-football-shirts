@@ -6,7 +6,7 @@ body {
     background: url('https://res.cloudinary.com/dzlveh6fi/image/upload/v1706519126/maradona94_tvferj.webp') no-repeat center 90px fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
+    color: black;
     font-family: 'Raleway';
 }
 
@@ -37,19 +37,19 @@ body {
 
 .shop-now-button {
     background: black;
-    color: white;
+    color: #e9f0f0;
     min-width: 260px;
     border-radius: 5rem;
 }
 
 .btn-black {
     background: black;
-    color: white;
+    color: #e9f0f0;
     border-radius: 5rem;
 }
 
 .btn-outline-black {
-    background: white;
+    background: #e9f0f0;
     color: black !important; /* use important to override link colors for <a> elements */
     border: 1px solid black;
     border-radius: 5rem;
@@ -59,7 +59,7 @@ body {
 .btn-outline-black:active,
 .btn-outline-black:focus {
     background: black;
-    color: white !important;
+    color: #e9f0f0 !important;
 }
 
 .shop-now-button:hover,
@@ -69,7 +69,7 @@ body {
 .btn-black:active,
 .btn-black:focus {
     background: #222;
-    color: white;
+    color: #e9f0f0;
 }
 
 .text-black {
@@ -118,6 +118,21 @@ a.category-badge > span.badge:hover {
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 9999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
 }
 
 .card,

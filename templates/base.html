@@ -114,12 +114,16 @@
         </div>
         <div id="shipping-banner" class="row text-center">
             <div class="col bg-black text-white rounded-0">
-                <h4 class="logo-font my-1">Free shipping on orders over {{ free_shipping_threshold }}€!</h4>                
+                <h4 class="logo-font my-1">Free shipping on orders over {{ free_shipping_threshold }}€! | Get 2nd Shirt reduced to 50%</h4>                
             </div>            
         </div>
     </header>
     {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+            {% for message in messages %}
+                {% include 'includes/toasts/toast_success.html' %}
+            {% endfor %}
+        </div>
     {% endif %}
 
     {% block page_header %}
@@ -129,6 +133,9 @@
     {% endblock %}
 
     {% block postloadjs %}
+        <script type="text/javascript">
+            $('.toast').toast('show');
+        </script>
     {% endblock %}
 </body>
 
