@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load shopping_cart_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -84,8 +85,8 @@
                                         <a class="wishlist-link text-info"><small>Add to Whishlist</small></a>
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
-                                    <td class="p-3">
-                                        <p class="my-0">{{ item.product.price }} €</p>
+                                    <td class="py-3">
+                                        <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
                                     </td>
                                 </tr>
                             {% endfor %}
