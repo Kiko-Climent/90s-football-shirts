@@ -114,7 +114,8 @@
         </div>
         <div id="shipping-banner" class="row text-center">
             <div class="col bg-black text-white rounded-0">
-                <h4 class="logo-font my-1">Free shipping on orders over {{ free_shipping_threshold }}€! | Get 2nd Shirt reduced to 50%</h4>                
+                <h4 id="discount-message" class="logo-font my-1" style="display: none;">Get 2nd Shirt reduced to 50%</h4>
+                <h4 id="shipping-message" class="logo-font my-1">Free shipping on orders over {{ free_shipping_threshold }}€!</h4>
             </div>            
         </div>
     </header>
@@ -134,6 +135,13 @@
 
     {% block postloadjs %}
         <script type="text/javascript">
+            $(document).ready(function() {
+                setInterval(function() {
+                    $("#discount-message").toggle();
+                    $("#shipping-message").toggle();                    
+                }, 3000);  // Cambia entre los mensajes cada 5 segundos
+            });
+
             $('.toast').toast('show');
         </script>
     {% endblock %}
