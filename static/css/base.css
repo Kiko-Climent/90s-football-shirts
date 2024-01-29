@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('/media/maradona90.webp') no-repeat center center fixed;
+    background: url('https://res.cloudinary.com/dzlveh6fi/image/upload/v1706519126/maradona94_tvferj.webp') no-repeat center 90px fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
@@ -23,8 +23,16 @@ body {
     text-transform: uppercase;
 }
 
+.top-football {
+    background-color: #e9f0f0;
+}
 .main-logo-link {
     width: fit-content;
+    background-color: #e9f0f0;
+}
+
+.navbar {
+    background-color: #e9f0f0;
 }
 
 .shop-now-button {
@@ -85,7 +93,7 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: white;
+	background: #e9f0f0;
 	z-index: -1;
 }
 
@@ -110,6 +118,11 @@ a.category-badge > span.badge:hover {
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+.card,
+.card-footer {
+    background-color: #e9f0f0;
 }
 
 /* a.category-badge > span.badge:hover {
