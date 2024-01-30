@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'shopping_cart',
+    'purchase',
 ]
 
 MIDDLEWARE = [
@@ -177,3 +178,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FREE_SHIPPING_THRESHOLD = 60
 STANDARD_SHIPPING_PERCENTAGE = 10
+
+DISCOUNT_PERCENTAGE = 0.5

@@ -88,6 +88,13 @@
                                     <td class="py-3">
                                         <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
                                     </td>
+                                    <!--<td class="py-3">
+                                        {% if discount_item and item == discount_item %}
+                                            <p class="my-0">{{ item.discounted_price | calc_subtotal:item.quantity }} €</p>
+                                        {% else %}
+                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
+                                        {% endif %}
+                                    </td>-->
                                 </tr>
                             {% endfor %}
                             <tr>
@@ -134,7 +141,7 @@
     </div>
 {% endblock %}
 {% block postloadjs %}
-{{ block.supper }}
+{{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
