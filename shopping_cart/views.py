@@ -6,7 +6,16 @@ from products.models import Product
 
 
 def view_shopping_cart(request):
-    return render(request, 'shopping_cart/shopping_cart.html')        
+    return render(request, 'shopping_cart/shopping_cart.html')
+
+#def view_shopping_cart(request):
+#    shopping_cart = request.session.get('shopping_cart', {})
+#    if items in shopping_cart > 1:
+#        cheapest_item = cheapest_item * DISCOUNT_PERCENTAGE
+#        return cheapest_item
+#    else:
+#        return render(request, 'shopping_cart/shopping_cart.html')
+       
 
 def add_to_shopping_cart(request, item_id):
 

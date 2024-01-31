@@ -46,16 +46,26 @@ body {
     border-radius: 5rem;
 }
 
+.dropdown-menu {
+    background-color: #e9f0f0;
+}
+
+.submit,
+.increment-qty,
+.decrement-qty {
+    color: #e9f0f0;
+    font-weight: bold;
+}
+
 .btn-black {
     background: black;
-    color: #e9f0f0;
     border-radius: 5rem;
 }
 
 .btn-outline-black {
     background: #e9f0f0;
     color: black !important; /* use important to override link colors for <a> elements */
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 5rem;
 }
 
@@ -81,7 +91,7 @@ body {
 }
 
 .border-black {
-    border: 1px solid black !important;
+    border: 2px solid black !important;
 }
 
 .bg-black {
@@ -103,6 +113,7 @@ body {
 
 .form-control {
     border-radius: 5rem;
+    background-color: #e9f0f0;
 }
 
 a.category-badge > span.badge:hover {
@@ -143,6 +154,10 @@ a.category-badge > span.badge:hover {
 .card-footer {
     background-color: #e9f0f0;
 }
+
+/*.card-item {
+    border: 1px solid black;
+}*/
 
 
 
