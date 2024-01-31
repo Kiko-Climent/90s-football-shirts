@@ -13,6 +13,8 @@ def purchase_view(request):
     template = 'purchase/purchase.html'
     context = {
         'order_form': order_form,
+        'stripe_public_key': 'pk_test_51OZ8GyDgPKCOcRaNCflIxug6zGANzV3pYCVm4jp7Jczy9bcvD1dW4NFFMx8q6TTrCX0wq4eYmJ0HY2mTsJ3IXT1M00dVJzynkd',
+        'client_secret': 'test client secret',
     }
 
     return render(request, template, context)
