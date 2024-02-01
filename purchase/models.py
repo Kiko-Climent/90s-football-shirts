@@ -23,7 +23,7 @@ class Order(models.Model):
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
-    def _generate_order_number(self):
+    def _generate_order_number(self): #hay un '_' antes de generate, podria causar error
         """
         Generate a random, unique order number
         """
@@ -34,7 +34,7 @@ class Order(models.Model):
         Update grand total each time a new order detail is added,
         accounting for shipping costs.
         """
-        self.order_total = self.orderdetails.aggregate(Sum('orderdetail_total'))['orderdetail_total__sum']
+        self.order_total = self.orderdetails.aggregate(Sum('orderdetail_total'))['orderdetail_total__sum'] or 0
         if self.order_total < settings.FREE_SHIPPING_THRESHOLD:
             self.shipping_cost = self.order_total * settings.STANDARD_SHIPPING_PERCENTAGE / 100
         else:
@@ -55,7 +55,7 @@ class Order(models.Model):
         return self.order_number
 
 class OrderDetail(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='orderdetails')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     product_size = models.CharField(max_length=2, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)

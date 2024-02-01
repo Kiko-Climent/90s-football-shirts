@@ -95,6 +95,21 @@
                                             <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
                                         {% endif %}
                                     </td>-->
+                                    <!--<td class="py-3">
+                                        {% if item.discounted_price %}
+                                            <p class="my-0">{{ item.discounted_price | calc_subtotal:item.quantity }} €</p>
+                                        {% else %}
+                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
+                                        {% endif %}
+                                    </td>-->
+                                   <!--<td class="py-3">
+                                        {% if cheapest_item.discounted_price %}
+                                            <p class="my-0">{{ cheapest_item.discounted_price | calc_subtotal:item.quantity }} €</p>
+                                        {% else %}
+                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
+                                        {% endif %}
+                                    </td>-->
+                                    
                                 </tr>
                             {% endfor %}
                             <tr>

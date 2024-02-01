@@ -1,21 +1,42 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
-
+from django.conf import settings
 from products.models import Product
-
 
 
 def view_shopping_cart(request):
     return render(request, 'shopping_cart/shopping_cart.html')
+"""
+def view_shopping_cart(request):
+    shopping_cart = request.session.get('shopping_cart', {})
 
-#def view_shopping_cart(request):
-#    shopping_cart = request.session.get('shopping_cart', {})
-#    if items in shopping_cart > 1:
-#        cheapest_item = cheapest_item * DISCOUNT_PERCENTAGE
-#        return cheapest_item
-#    else:
-#        return render(request, 'shopping_cart/shopping_cart.html')
-       
+    if len(shopping_cart) > 1:
+        cheapest_item_id = min(shopping_cart, key=lambda x: Product.objects.get(pk=x).price)
+        cheapest_item = shopping_cart[cheapest_item_id]
+
+        if 'price' in cheapest_item:
+            discount_percentage = settings.DISCOUNT_PERCENTAGE
+            cheapest_item['discounted_price'] = cheapest_item['price'] * discount_percentage
+            cheapest_item['discount'] = cheapest_item['price'] - cheapest_item['discounted_price']
+
+
+    return render(request, 'shopping_cart/shopping_cart.html', {'shopping_cart': shopping_cart})
+"""
+"""
+def view_shopping_cart(request):
+    shopping_cart = request.session.get('shopping_cart', {})
+
+    if len(shopping_cart) > 1:
+        cheapest_item_id = min(shopping_cart, key=lambda x: Product.objects.get(pk=x).price)
+        cheapest_item = shopping_cart[cheapest_item_id]
+
+        if isinstance(cheapest_item, dict) and 'price' in cheapest_item:
+            discount_percentage = settings.DISCOUNT_PERCENTAGE
+            cheapest_item['discounted_price'] = cheapest_item['price'] * discount_percentage
+            cheapest_item['discount'] = cheapest_item['price'] - cheapest_item['discounted_price']
+
+    return render(request, 'shopping_cart/shopping_cart.html', {'shopping_cart': shopping_cart})
+"""
 
 def add_to_shopping_cart(request, item_id):
 

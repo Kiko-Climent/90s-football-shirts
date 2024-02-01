@@ -135,6 +135,10 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
+.btn-detail {
+    color: #e9f0f0;
+}
+
 .message-container {
     position: fixed;
     top: 72px;
