@@ -19,9 +19,40 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">My Profile</h2>
+                <h2 class="logo-font mb-4 col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12 text-center text-lg-left">My Profile</h2>
                 <hr>
             </div>
         </div>
-        {{ profile }}
+        <div class="row">
+            <div class="col-12 col-lg-6 card text-center">
+                <p class="text-muted">Shipping Details:</p>
+                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-black text-uppercase float-right">Update Profile</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Past Orders:</p>
+                {{ orders }}
+            </div>
+        </div>
+{% endblock %}
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        let countrySelected = $('#id_default_country').val();
+        if(!countrySelected) {
+            $('#id_default_country').css('color', '#aab7c4');
+        };
+        $('#id_default_country').change(function() {
+            countrySelected = $(this).val();
+            if(!countrySelected) {
+                $(this).css('color', '#aab7c4');
+            } else {
+                $(this).css('color', '#000');
+            }
+        });
+    </script>
+
 {% endblock %}

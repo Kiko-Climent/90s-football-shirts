@@ -60,6 +60,7 @@ body {
 .btn-black {
     background: black;
     border-radius: 5rem;
+    color: #e9f0f0;
 }
 
 .btn-outline-black {
@@ -183,7 +184,7 @@ a.category-badge > span.badge:hover {
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
-    color: #6c757d; /* text-secondary */
+    color: #e9f0f0; /* text-secondary */
 }
 
 .allauth-form-inner-content input {
@@ -204,7 +205,7 @@ a.category-badge > span.badge:hover {
 	/* btn */
 	display: inline-block;
     font-weight: 400;
-    color: #fff;
+    color: #e9f0f0;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
@@ -224,7 +225,7 @@ a.category-badge > span.badge:hover {
 
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
+	color: #e9f0f0;
     background-color: #222;
     border-color: #222;
 }
