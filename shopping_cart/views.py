@@ -6,71 +6,16 @@ from products.models import Product
 
 #def view_shopping_cart(request):
 #    return render(request, 'shopping_cart/shopping_cart.html')
-"""
+
+
 def view_shopping_cart(request):
     shopping_cart = request.session.get('shopping_cart', {})
-
-    if len(shopping_cart) > 1:
-        cheapest_item_id = min(shopping_cart, key=lambda x: Product.objects.get(pk=x).price)
-        cheapest_item = shopping_cart[cheapest_item_id]
-
-        if 'price' in cheapest_item:
-            discount_percentage = settings.DISCOUNT_PERCENTAGE
-            cheapest_item['discounted_price'] = cheapest_item['price'] * discount_percentage
-            cheapest_item['discount'] = cheapest_item['price'] - cheapest_item['discounted_price']
-
-
-    return render(request, 'shopping_cart/shopping_cart.html', {'shopping_cart': shopping_cart})
-"""
-"""
-def view_shopping_cart(request):
-    shopping_cart = request.session.get('shopping_cart', {})
-
-    if len(shopping_cart) > 1:
-        cheapest_item_id = min(shopping_cart, key=lambda x: Product.objects.get(pk=x).price)
-        cheapest_item = shopping_cart[cheapest_item_id]
-
-        if isinstance(cheapest_item, dict) and 'price' in cheapest_item:
-            discount_percentage = settings.DISCOUNT_PERCENTAGE
-            cheapest_item['discounted_price'] = cheapest_item['price'] * discount_percentage
-            cheapest_item['discount'] = cheapest_item['price'] - cheapest_item['discounted_price']
-
-    print("Cheapest Item:", cheapest_item)
-    return render(request, 'shopping_cart/shopping_cart.html', {'shopping_cart': shopping_cart})
-"""
-"""
-def view_shopping_cart(request):
-    shopping_cart = request.session.get('shopping_cart', {})
-
-    if len(shopping_cart) > 1:
-        cheapest_item_id = min(shopping_cart, key=lambda x: Product.objects.get(pk=x).price)
-        cheapest_item = shopping_cart[cheapest_item_id]
-
-        if isinstance(cheapest_item, dict) and 'price' in cheapest_item:
-            discount_percentage = settings.DISCOUNT_PERCENTAGE
-            cheapest_item['discounted_price'] = cheapest_item['price'] * (1 - discount_percentage)  # Calcular el precio descontado
-            cheapest_item['discount'] = cheapest_item['price'] - cheapest_item['discounted_price']
-
-    print("Cheapest Item:", cheapest_item)
-    return render(request, 'shopping_cart/shopping_cart.html', {'shopping_cart': shopping_cart})
-"""
-def view_shopping_cart(request):
-    shopping_cart = request.session.get('shopping_cart', {})
-
-    # if shopping_cart:
-    #     cheapest_item = min(shopping_cart.values(), key=lambda x: x.get('discounted_price', x.get('price', 0)))
-    #     print("Test")
-
-    #     if 'price' in cheapest_item:
-    #         discount_percentage = settings.DISCOUNT_PERCENTAGE
-    #         cheapest_item['discounted_price'] = cheapest_item['product_price'] * (1 - discount_percentage)
-    #         cheapest_item['discount'] = cheapest_item['product_price'] - cheapest_item['discounted_price']
-
-    # print("Cheapest Item:", cheapest_item)
     return render(request, 'shopping_cart/shopping_cart.html', {'shopping_cart': shopping_cart})
 
 
 def add_to_shopping_cart(request, item_id):
+
+    print(request.POST)
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -105,18 +50,24 @@ def add_to_shopping_cart(request, item_id):
     request.session['shopping_cart'] = shopping_cart
     return redirect(redirect_url)
 
-def update_shopping_cart(request, item_id):
+
+def update_shopping_cart(request, item_id,):
+
+    print(request.POST)
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     size = None
+    #size = ''
+    #size = {'XS', 'S', 'M', 'L', 'XL'}
     if 'product_size' in request.POST:
         size = request.POST['product_size']
     shopping_cart = request.session.get('shopping_cart', {})
 
     if size:
         if quantity > 0:
-            shopping_cart[item_id]['items_by_size'][size] = quantity 
+            shopping_cart[item_id]['items_by_size'][size] = quantity
+            #shopping_cart[item_id]['product_size'][size] = quantity
             messages.success(request, f'Updated size {size.upper()} {product.team} quantity to {shopping_cart[item_id]["items_by_size"][size]}')
         else:
             del shopping_cart[item_id]['items_by_size'][size]
@@ -134,6 +85,7 @@ def update_shopping_cart(request, item_id):
 
     request.session['shopping_cart'] = shopping_cart
     return redirect(reverse('shopping_cart'))
+
 
 def remove_from_shopping_cart(request, item_id):
 
@@ -159,3 +111,4 @@ def remove_from_shopping_cart(request, item_id):
     except Exception as e:
         messages.error(request,f'Error removing item: {e}')
         return HttpResponse(status=500)
+

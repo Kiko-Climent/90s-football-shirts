@@ -43,8 +43,10 @@
                                     <td class="p-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                         <p class="my-0 d-none d-md-block"><strong>{{ item.product.team }}</strong></p>
-                                        <!--<p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{% if item.size %}{{ item.size|upper }}{% else %}N/A{% endif %}{% endif %}</p>-->
+                                        <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{% if item.size %}{{ item.size|upper }}{% else %}N/A{% endif %}{% endif %}</p>
                                         <p class="my-0"><strong>Size: </strong>{% if item.size %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                        <p class="my-0"><strong>Size: </strong>{{ item.size|upper }}</p>
+                                        <!--<p class="my-0"><strong>Size: </strong>{{ item.size|upper }}</p>-->
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="p-3">
@@ -137,7 +139,7 @@
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
                                     <h6><strong>Shopping Cart Total: {{ total|floatformat:2 }} €</strong></h6>
-                                    <h6>Shipping: ${{ shipping|floatformat:2 }}</h6>
+                                    <h6>Shipping:{{ shipping|floatformat:2 }} €</h6>
                                     <h4 class="mt-4"><strong>Grand Total: {{ grand_total|floatformat:2 }} €</strong></h4>
                                     {% if free_delivery_delta > 0 %}
                                         <p class="mb-1 text-danger">

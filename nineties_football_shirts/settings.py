@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-kikocliment-90sfootball-pv0ptcxcw9y.ws-eu107.gitpod.io', 'nineties-football-shirts-8ef65f488fe9.herokuapp.com']
+ALLOWED_HOSTS = ['8000-kikocliment-90sfootball-pv0ptcxcw9y.ws-eu108.gitpod.io', 'nineties-football-shirts-8ef65f488fe9.herokuapp.com']
 
 
 # Application definition
@@ -194,3 +194,7 @@ STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'ninetiesfootballshirts@example.com'

@@ -3,12 +3,16 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+"""
+    Context to implement the discount:
+
 def shopping_cart_contents(request):
 
     shopping_cart_items = []
     total = 0
     product_count = 0
     quantity = 0
+    #discount_percentage = settings.DISCOUNT_PERCENTAGE
     shopping_cart = request.session.get('shopping_cart', {})
 
     cheapest_item_price = float('inf')
@@ -17,7 +21,7 @@ def shopping_cart_contents(request):
 
     for item_id, item_data in shopping_cart.items():
         if isinstance(item_data, int):
-            print(f'context -> item_id == {item_id}')
+            #print(f'context -> item_id == {item_id}')
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
             product_count += item_data
@@ -60,6 +64,7 @@ def shopping_cart_contents(request):
         cheapest_item['discounted'] = True
         total -= cheapest_item_price * cheapest_item['quantity']
         total += cheapest_item['discounted_price'] * cheapest_item['quantity']
+        #total += cheapest_item['discounted_price']
         discount_applied = True
 
     if total < settings.FREE_SHIPPING_THRESHOLD:
@@ -92,6 +97,8 @@ def shopping_cart_contents(request):
             'free_shipping_threshold': settings.FREE_SHIPPING_THRESHOLD,
             'grand_total': grand_total,
         }
+
+    print(f'tutor - context : {context}')
 
     return context
 
@@ -146,4 +153,4 @@ def shopping_cart_contents(request):
     }
 
     return context
-"""
+
