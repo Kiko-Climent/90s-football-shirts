@@ -61,13 +61,13 @@
     <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-circle-user fa-lg"></i></div>
-            <p class="my-0">My Account</p>
+            <p class="my-0">{% if user.is_authenticated %}{{ user.username }}{% else %}My Account{% endif %}</p>
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-                <a href="{% url 'account_logout' %}" class="dropdown-item">Management</a>
+                <a href="{% url 'add_product' %}" class="dropdown-item">Management</a>
             {% endif %}
             <a href="" class="dropdown-item">My Profile</a>
             <a href="" class="dropdown-item">My Wishlist</a>
