@@ -52,9 +52,9 @@ def add_to_shopping_cart(request, item_id):
 
 
 def update_shopping_cart(request, item_id,):
-
-    print(request.POST)
-
+    """
+    if set size to '' and no ['items_by_size'] gets same result. NEEDS CHECK!!
+    """
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     size = None
@@ -67,7 +67,7 @@ def update_shopping_cart(request, item_id,):
     if size:
         if quantity > 0:
             shopping_cart[item_id]['items_by_size'][size] = quantity
-            #shopping_cart[item_id]['product_size'][size] = quantity
+            #shopping_cart[item_id][size] = quantity
             messages.success(request, f'Updated size {size.upper()} {product.team} quantity to {shopping_cart[item_id]["items_by_size"][size]}')
         else:
             del shopping_cart[item_id]['items_by_size'][size]

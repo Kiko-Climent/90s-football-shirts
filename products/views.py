@@ -83,9 +83,9 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            product = form.save()
             messages.success(request, 'Product succesfully added')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Error by addding the product. Make sure you enter a vild form.')
     else:
@@ -99,6 +99,7 @@ def add_product(request):
     return render(request, template, context)
 
 def edit_product(request, product_id):
+    """ Update an existing product"""
 
     product = get_object_or_404(Product, pk=product_id)
     form = ProductForm(instance=product)
@@ -120,3 +121,12 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+def delete_product(request, product_id):
+    """ Delete an existing product from the database """
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('products'))
+
+
