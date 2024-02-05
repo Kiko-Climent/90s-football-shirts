@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="overlay"></div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">WISHLIST from: {{ user.username }}</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if wishlist_items %}
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black">
+                        <tr>
+                            <th class="col">Info:</th>
+                            <th class="col"></th>
+                            <th class="col">Price</th>
+                            <th class="col">Actions:</th>
+                        </tr>
+                    </thead>
+                    {% for item in wishlist_items %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                        </td>
+                        <td class="p-3">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0"><strong>{{ item.product.team }}</strong></p>
+                        </td>
+                        <td class="p-3">
+                            <p class="my-0">{{ item.product.price }} €</p>
+                        </td>
+                        <td class="p-3">
+                            <a href="{% url 'product_details' item.product.id %}" class="btn btn-outline-black btn-sm">
+                                <span class="icon">
+                                    <i class="fa-solid fa-shirt"></i>
+                                </span>
+                                <span class="text-uppercase">Product Details</span>
+                            </a>
+                            <a href="{% url 'remove_from_wishlist' item.id %}" class="btn btn-black btn-sm">
+                                <span class="icon">
+                                    <i class="fas fa-trash-alt"></i>
+                                </span>
+                                <span class="text-uppercase">Delete from Wishlist</span>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            {% else %}
+            <p class="lead mb-5">Your Wishlist is empty</p>
+            <a href="{% url 'products' %}" class="btn btn-outline-black">
+                <span class="icon">
+                    <i class="fas fa-chevron-circle-left"></i>
+                </span>
+                <span>Back to Shop</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
