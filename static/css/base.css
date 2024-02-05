@@ -274,6 +274,10 @@ a.category-badge > span.badge:hover {
     .header-container {
         padding-top: 164px;
     }
+    .wishlist-image {
+        max-width: 480px;
+        max-width: 480px;
+    }
 }
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
