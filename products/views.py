@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.db.models import Q, Avg
 from django.db.models.functions import Lower
 
 from .models import Product, Category
@@ -74,9 +74,23 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     rating_form = RatingForm()
 
+    if request.method == 'POST':
+        # Handle form submission
+        rating_form = RatingForm(request.POST)
+        if rating_form.is_valid():
+            new_rating = rating_form.save(commit=False)
+            new_rating.product = product
+            new_rating.user = request.user
+            new_rating.save()
+
+    # Fetch the updated average rating
+    product_rating = product.ratings.aggregate(Avg('value'))['value__avg']
+
+
     context = {
         'product': product,
         'rating_form': rating_form,
+        'product_rating': product_rating,
     }
 
     return render(request, 'products/product_detail.html', context)
