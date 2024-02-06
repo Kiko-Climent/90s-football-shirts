@@ -9,5 +9,5 @@ class RatingForm(forms.ModelForm):
             'value': 'Rate this product:'
         }
         widgets = {
-            forms.Select(choices=Raiting.VALUE_CHOICES),
+            'value': forms.Select(choices=Rating.VALUE_CHOICES),
         }
