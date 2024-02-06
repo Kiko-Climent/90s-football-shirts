@@ -1,5 +1,8 @@
 from django.db import models
+from django.db.models import Avg
+
 from profiles.models import UserProfile
+
 
 
 class Category(models.Model):
@@ -32,3 +35,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.team
+    
+    def average_rating(self):
+        from ratings.models import Rating  # Importing locally to avoid circular import
+        avg_rating = Rating.objects.filter(product=self).aggregate(Avg('value'))['value__avg']
+        return avg_rating if avg_rating is not None else 0
