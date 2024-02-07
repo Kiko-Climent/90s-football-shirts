@@ -13,7 +13,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 text-center">
                 <hr>
                 <h2 class="logo-font mb-4">PRODUCT MANAGEMENT</h2>
                 <h5 class="text-muted">Add new product</h5>
@@ -31,9 +31,9 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
-                    <div class="text-right">
+                    <div class="d-flex justify-content-center">
                         <a class="btn btn-outline-black" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn-black" type="submit">Add New Product</button>
+                        <button class="btn-black btn-add-product" type="submit">Add New Product</button>
                     </div>
                 </form>
             </div>

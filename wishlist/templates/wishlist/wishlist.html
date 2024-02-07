@@ -67,30 +67,30 @@
                         </td>
                     </tr>-->
                     <tr>
-                        <td class="p-3">
+                        <td class="pt-2 pb-2 pl-0">
                             <div class="d-flex align-items-center">
-                                <img class="img-fluid rounded mr-3" src="{{ item.image.url }}" style="max-width: 200px;">
+                                <img class="img-fluid rounded mr-2 image-wishlist" src="{{ item.image.url }}">
                                 <div>
                                     <p class="my-0"><strong>{{ item.team }}</strong></p>
                                 </div>
                             </div>
                         </td>
-                        <td class="p-3 text-center">
+                        <td class="p-2 text-center">
                             <p class="my-0">{{ item.price }} €</p>
                         </td>
-                        <td class="p-3 text-center">
+                        <td class="p-2 text-center">
                             <div class="d-flex justify-content-center align-items-center">
-                                <a href="{% url 'product_detail' item.id %}" class="btn btn-outline-black btn-sm mr-2">
+                                <a href="{% url 'product_detail' item.id %}" class="btn btn-outline-black btn-sm mr-1">
                                     <span class="icon">
                                         <i class="fa-solid fa-shirt"></i>
                                     </span>
-                                    <span class="text-uppercase">Details</span>
+                                    <span class="text-uppercase d-none d-sm-inline d-md-none">Details</span>
                                 </a>
                                 <a href="{% url 'remove_from_wishlist' item.id %}" class="btn btn-black btn-sm">
                                     <span class="icon">
                                         <i class="fas fa-trash-alt"></i>
                                     </span>
-                                    <span class="text-uppercase">Remove</span>
+                                    <span class="text-uppercase d-none d-sm-inline d-md-none">Remove</span>
                                 </a>
                             </div>
                         </td>

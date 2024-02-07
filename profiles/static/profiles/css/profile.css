@@ -8,7 +8,7 @@
 }
 
 #profile-update-form input::placeholder {
-    color: #aab7c4;
+    color: #e9f0f0;
 }
 
 #id_default_country,
@@ -17,5 +17,9 @@
 }
 
 #id_default_country option:first-child {
-    color: #aab7c4;
+    color: #e9f0f0;
+}
+
+.btn-profile {
+    color: #e9f0f0
 }
