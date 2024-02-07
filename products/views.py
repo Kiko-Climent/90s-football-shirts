@@ -55,6 +55,12 @@ def all_products(request):
             
             queries = Q(team__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+        
+            # Fetch ratings for each product in the loop
+        for product in products:
+            product_rating = product.ratings.aggregate(Avg('value'))['value__avg']
+            # Include product_rating in the context for each product
+            product.product_rating = product_rating
 
     current_sorting = f'{sort}_{direction}'
 

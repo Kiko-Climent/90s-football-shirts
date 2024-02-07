@@ -48,7 +48,8 @@
                         </div>
                         <div class="col-7">
                             <p class="my-0"><strong>{{ item.product.team }}</strong></p>
-                            <p class="my-0 small">Size: {% if item.size %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                            <!--<p class="my-0 small">Size: {% if item.size %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>-->
+                            <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">

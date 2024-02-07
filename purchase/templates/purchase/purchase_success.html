@@ -62,6 +62,7 @@
                         <div class="col-12 col-md-4">
                             <p class="small mb-0 text-black font-weight-bold">
                                 <!-- error rendering the size, needs to be check -->
+                                {{ item.product.team }}{% if item.product_size %} - Size {{ item.product.size|upper }}{% endif %}
                                 {{ item.product.team }}{% if item.size %} - Size {{ item.size|upper }}{% else %}N/A{% endif %}
                                 {{ item.product.team }}{% if item.product_size %} - Size {{ item.product.size|upper }}{% endif %}
                                 {{ item.product.team }}{% if item.size %}{{ item.size|upper }}{% endif %}

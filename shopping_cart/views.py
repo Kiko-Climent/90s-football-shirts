@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
-from django.conf import settings
+
 from products.models import Product
 
-
-#def view_shopping_cart(request):
-#    return render(request, 'shopping_cart/shopping_cart.html')
 
 
 def view_shopping_cart(request):
@@ -18,8 +15,8 @@ def add_to_shopping_cart(request, item_id):
     print(request.POST)
 
     product = get_object_or_404(Product, pk=item_id)
-    #quantity = int(request.POST.get('quantity')) OLD ONE
-    quantity = int(request.POST.get('quantity', 1))
+    quantity = int(request.POST.get('quantity'))
+    #quantity = int(request.POST.get('quantity', 1))
     redirect_url = request.POST.get('redirect_url')
     
     size = None
@@ -48,20 +45,18 @@ def add_to_shopping_cart(request, item_id):
             shopping_cart[item_id] = quantity
             messages.success(request, f'Added {product.team} to your cart')
     
+    print(f'item_id: {item_id}, size: {size}, shopping_cart: {shopping_cart}')
+
     request.session['shopping_cart'] = shopping_cart
     return redirect(redirect_url)
 
 
 def update_shopping_cart(request, item_id,):
-    """
-    if set size to '' and no ['items_by_size'] gets same result. NEEDS CHECK!!
-    """
+
     product = get_object_or_404(Product, pk=item_id)
-    #quantity = int(request.POST.get('quantity')) OLD ONE
-    quantity = int(request.POST.get('quantity', 1))
+    quantity = int(request.POST.get('quantity'))
+    #quantity = int(request.POST.get('quantity', 1))
     size = None
-    #size = ''
-    #size = {'XS', 'S', 'M', 'L', 'XL'}
     if 'product_size' in request.POST:
         size = request.POST['product_size']
     shopping_cart = request.session.get('shopping_cart', {})
@@ -70,7 +65,6 @@ def update_shopping_cart(request, item_id,):
         if quantity > 0:
             #shopping_cart[item_id] = sum(shopping_cart[item_id]['items_by_size'].values())  # Update main quantity
             shopping_cart[item_id]['items_by_size'][size] = quantity
-            #shopping_cart[item_id][size] = quantity
             messages.success(request, f'Updated size {size.upper()} {product.team} quantity to {shopping_cart[item_id]["items_by_size"][size]}')
         else:
             del shopping_cart[item_id]['items_by_size'][size]
@@ -89,7 +83,7 @@ def update_shopping_cart(request, item_id,):
     request.session['shopping_cart'] = shopping_cart
     return redirect(reverse('shopping_cart'))
 
-
+"""
 def remove_from_shopping_cart(request, item_id):
 
     try:
@@ -113,5 +107,39 @@ def remove_from_shopping_cart(request, item_id):
 
     except Exception as e:
         messages.error(request,f'Error removing item: {e}')
+        return HttpResponse(status=500)
+"""
+def remove_from_shopping_cart(request, item_id):
+
+    print("Request POST data:", request.POST)
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        size = request.POST.get('size')
+        shopping_cart = request.session.get('shopping_cart', {})
+
+        print(f"Before Removal - shopping_cart: {shopping_cart}")
+
+        if size and item_id in shopping_cart:
+            if size in shopping_cart[item_id]['items_by_size']:
+                del shopping_cart[item_id]['items_by_size'][size]
+                if not shopping_cart[item_id]['items_by_size']:
+                    shopping_cart.pop(item_id)
+                messages.success(request, f'Remove size {size.upper()} {product.team} from your cart')
+            else:
+                messages.warning(request, f'Size {size.upper()} not found for {product.team} in your cart')
+        elif item_id in shopping_cart:
+            shopping_cart.pop(item_id)
+            messages.success(request, f'Removed {product.team} from your cart')
+        else:
+            messages.warning(request, f'Item {item_id} not found in your cart')
+
+        request.session['shopping_cart'] = shopping_cart
+
+        print(f"After Removal - shopping_cart: {shopping_cart}")
+
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
 
