@@ -30,4 +30,5 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('wishlist/', include('wishlist.urls')),
     path('ratings/', include('ratings.urls')),
+    path('contact/', include('contact.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
