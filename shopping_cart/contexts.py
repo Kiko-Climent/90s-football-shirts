@@ -150,6 +150,4 @@ def shopping_cart_contents(request):
             'grand_total': grand_total,
         }
 
-    print(f'tutor - context : {context}')
-
     return context

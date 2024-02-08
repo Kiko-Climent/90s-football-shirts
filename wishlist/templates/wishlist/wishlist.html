@@ -79,18 +79,18 @@
                             <p class="my-0">{{ item.price }} €</p>
                         </td>
                         <td class="p-2 text-center">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <a href="{% url 'product_detail' item.id %}" class="btn btn-outline-black btn-sm mr-1">
+                            <div class="flex-column justify-content-center align-items-center">
+                                <a href="{% url 'product_detail' item.id %}" class="btn btn-outline-black btn-sm mb-1">
                                     <span class="icon">
                                         <i class="fa-solid fa-shirt"></i>
                                     </span>
-                                    <span class="text-uppercase d-none d-sm-inline d-md-none">Details</span>
+                                    <span class="text-uppercase d-none d-md-inline d-lg-inline">Details</span>
                                 </a>
                                 <a href="{% url 'remove_from_wishlist' item.id %}" class="btn btn-black btn-sm">
                                     <span class="icon">
                                         <i class="fas fa-trash-alt"></i>
                                     </span>
-                                    <span class="text-uppercase d-none d-sm-inline d-md-none">Remove</span>
+                                    <span class="text-uppercase d-none d-md-inline d-lg-inline">Remove</span>
                                 </a>
                             </div>
                         </td>

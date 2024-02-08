@@ -6,13 +6,12 @@ from products.models import Product
 
 
 def view_shopping_cart(request):
+    
     shopping_cart = request.session.get('shopping_cart', {})
     return render(request, 'shopping_cart/shopping_cart.html', {'shopping_cart': shopping_cart})
 
 
 def add_to_shopping_cart(request, item_id):
-
-    print(request.POST)
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -111,13 +110,10 @@ def remove_from_shopping_cart(request, item_id):
 """
 def remove_from_shopping_cart(request, item_id):
 
-    print("Request POST data:", request.POST)
     try:
         product = get_object_or_404(Product, pk=item_id)
         size = request.POST.get('size')
         shopping_cart = request.session.get('shopping_cart', {})
-
-        print(f"Before Removal - shopping_cart: {shopping_cart}")
 
         if size and item_id in shopping_cart:
             if size in shopping_cart[item_id]['items_by_size']:
@@ -134,12 +130,8 @@ def remove_from_shopping_cart(request, item_id):
             messages.warning(request, f'Item {item_id} not found in your cart')
 
         request.session['shopping_cart'] = shopping_cart
-
-        print(f"After Removal - shopping_cart: {shopping_cart}")
-
         return HttpResponse(status=200)
 
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
-

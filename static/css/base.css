@@ -257,7 +257,7 @@ a.category-badge > span.badge:hover {
 
 @media (max-width: 770px) {
     .image-wishlist {
-        max-width: 150px;
+        max-width: 135px;
         height: auto;
     }
 }
