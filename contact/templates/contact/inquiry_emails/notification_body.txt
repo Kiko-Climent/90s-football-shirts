@@ -2,7 +2,8 @@ New Inquiry Received
 
 Name: {{ inquiry.name }}
 Email: {{ inquiry.email }}
-Subject: {{ inquiry.subject }}
+Subject: {{ inquiry.subject_type }}
+Product: {{ inquiry.product }}
 Message: {{ inquiry.message }}
 
 Thank you.
