@@ -1,0 +1,8 @@
+New Inquiry Received
+
+Name: {{ inquiry.name }}
+Email: {{ inquiry.email }}
+Subject: {{ inquiry.subject }}
+Message: {{ inquiry.message }}
+
+Thank you.

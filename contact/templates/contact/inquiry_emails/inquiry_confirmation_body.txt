@@ -1,0 +1,15 @@
+Hello {{ inquiry.name }}!
+
+This is a confirmation of your inquiry at 90's Football Shirts. Your inquiry information is below:
+
+Name: {{ inquiry.name }}
+Email: {{ inquiry.email }}
+Subject: {{ inquiry.subject }}
+Message: {{ inquiry.message }}
+
+We will get back to you soon.
+
+Thank's for getting in touch!
+
+Sincerely,
+90's Football Shirts
