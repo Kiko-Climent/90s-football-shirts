@@ -17,6 +17,7 @@ def all_products(request):
     sort = None
     direction = None
     brands = None
+    product_rating = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -55,12 +56,15 @@ def all_products(request):
             
             queries = Q(team__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
-        
+
+            product_ratings = []
             # Fetch ratings for each product in the loop
-        for product in products:
-            product_rating = product.ratings.aggregate(Avg('value'))['value__avg']
-            # Include product_rating in the context for each product
-            product.product_rating = product_rating
+            for product in products:
+                product_rating = product.ratings.aggregate(Avg('value'))['value__avg']
+                # Include product_rating in the context for each product
+                product.product_rating = product_rating
+                # Append the rating to the list
+                product_ratings.append(product_rating)
 
     current_sorting = f'{sort}_{direction}'
 
@@ -126,6 +130,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+    
 
 @login_required
 def edit_product(request, product_id):

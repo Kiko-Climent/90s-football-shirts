@@ -39,7 +39,6 @@ def contact(request):
     return render(request, 'contact/contact_form.html', {'form':form})
 
 def contact_success(request):
-    messages.success(request, 'Thanks for your inquiry, we will get back to you asap')
     return render(request, 'contact/contact_success.html')
 
 

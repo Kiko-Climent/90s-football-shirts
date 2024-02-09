@@ -217,7 +217,7 @@ a.category-badge > span.badge:hover {
     color: #fff !important;
 } */
 
-/* --------------------- products */
+/* --------------------------------- products */
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -250,7 +250,7 @@ a.category-badge > span.badge:hover {
     border-color: #dc3545;
     border-radius: 0;
 }
-/* -------------------------------- Wishlist */
+/* ----------------------------------- Wishlist */
 .image-wishlist {
     max-width: 200px;
 }
@@ -261,6 +261,34 @@ a.category-badge > span.badge:hover {
         height: auto;
     }
 }
+
+/* -------------------------------- Contact */
+/*.overlay-contact {
+    background: url('https://res.cloudinary.com/dzlveh6fi/image/upload/v1707468454/beckam_rlksmr.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    color: black;
+    font-family: 'Kanit', 'sans-serif';
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jumbotron-contact {
+    background-color: #ffffff6b;
+    border-radius: 2rem;
+}
+
+.back-shop-button {
+    background: black;
+    color: #e9f0f0;
+    border-radius: 2rem;
+}
+*/
+
+
+
+
 
 /* -------------------------------- Media Queries */
 
