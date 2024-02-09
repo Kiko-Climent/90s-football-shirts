@@ -31,12 +31,12 @@
                 <div class="product-details-container mb-5 mt-md-5">
                     <p class="mb-0">{{ product.team }}</p>
                     <p class="mb-0">{{ product.brand }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">{{ product.price }} €</p>
-                    <!-- Wishlist Section --> 
+                    <p class="lead mb-0 text-left font-weight-bold">{{ product.price }} €</p> 
                     <!--{% if request.user.is_authenticated %}
                         <a class="small text-info text-muted" href="{% url 'add_to_wishlist' product.id %}"><i
                                 class="fa-solid fa-heart"></i> ADD TO WISHLIST</a>
                     {% endif %}-->
+                    <!-- Wishlist Section -->
                     {% if request.user.is_authenticated %}
                         <a class="small text-info text-muted add-to-wishlist" href="{% url 'add_to_wishlist' product.id %}">
                             <i class="fa-solid fa-heart" id="heart-icon"></i>
@@ -50,21 +50,42 @@
                         </a>
                     </p>
                     {% endif %}
-                    <!-- Product Ratings Section -->
-                    <small class=" text-muted mt-4"><i class="fas fa-star mr-1"></i>Ratings: </small>
+                    
+                    <!--<small class=" text-muted mt-4"><i class="fas fa-star mr-1"></i>Ratings: </small>
                     {% if product_rating %}
                         <small class="text-muted">{{ product_rating|floatformat:1 }} / 5</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
                     {% if request.user.is_authenticated %}
-                        <!-- Form for submitting a new rating -->
+                        Form for submitting a new rating
                         <form method="POST" action="{% url 'rating_product' product.id %}">
                             {% csrf_token %}
                             {{ rating_form.as_p }}
                             <button type="submit" class="btn btn-primary btn-sm mt-3">Submit Rating</button>
                         </form>
-                    {% endif %}                                                        
+                    {% endif %}-->
+                    
+                    <!-- Product Ratings Section -->
+                    <small class="text-muted mt-4" id="ratings-text" style="cursor: pointer;">
+                        <i class="fas fa-star mr-1"></i>Ratings:
+                    </small>
+                    {% if product_rating %}
+                        <small class="text-muted">{{ product_rating|floatformat:1 }} / 5</small>
+                    {% else %}
+                        <small class="text-muted">No Rating</small>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                        <!-- Container for dropdown menu and submit button (initially hidden) -->
+                        <div id="rating-container" style="display: none;">
+                            <!-- Form for submitting a new rating -->
+                            <form method="POST" action="{% url 'rating_product' product.id %}">
+                                {% csrf_token %}
+                                {{ rating_form.as_p }}
+                                <button type="submit" class="btn btn-sm btn-rating">Submit Rating</button>
+                            </form>
+                        </div>
+                    {% endif %}                                                    
                     {% if request.user.is_superuser %}
                         <small class="mb-0 text-muted"><i class="fa-solid fa-user-tie"></i> Management:
                             <a href="{% url 'edit_product' product.id %}">EDIT</a>
@@ -135,4 +156,5 @@
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
 {% include 'wishlist/includes/add_to_wishlist_script.html' %}
+{% include 'ratings/includes/rating_form_script.html' %}
 {% endblock %}

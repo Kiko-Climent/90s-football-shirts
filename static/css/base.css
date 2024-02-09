@@ -262,6 +262,22 @@ a.category-badge > span.badge:hover {
     }
 }
 
+/* ---------------------------------- Ratings */
+
+.btn-rating {
+    background: black;
+    color: #e9f0f0 !important; /* use important to override link colors for <a> elements */
+    border: 2px solid black;
+    border-radius: 2rem;
+}
+.btn-rating:hover,
+.btn-rating:active,
+.btn-rating:focus {
+    background: #e9f0f0;
+    color: black !important;
+}
+
+
 /* -------------------------------- Contact */
 /*.overlay-contact {
     background: url('https://res.cloudinary.com/dzlveh6fi/image/upload/v1707468454/beckam_rlksmr.jpg') no-repeat center center fixed;
