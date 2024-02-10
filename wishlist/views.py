@@ -56,4 +56,3 @@ def remove_from_wishlist(request, item_id):
     messages.success(request, f'Removed {product.team} from your wishlist.')
     
     return redirect('wishlist')
-

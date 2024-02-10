@@ -4,7 +4,7 @@
         var wishlistText = $('#wishlist-text');
 
         // Check if the product is in the wishlist when the page loads
-        var checkWishlistUrl = $('.add-to-wishlist').attr('href');
+        var checkWishlistUrl = $('.wishlist').attr('href');
         $.ajax({
             url: checkWishlistUrl,
             method: 'GET',

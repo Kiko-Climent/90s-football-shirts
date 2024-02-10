@@ -3,7 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
-"""
+
 def shopping_cart_contents(request):
 
     shopping_cart_items = []
@@ -54,7 +54,8 @@ def shopping_cart_contents(request):
     }
 
     return context
-"""    
+
+"""   
 
 #    Context to implement the discount:
 
@@ -79,7 +80,7 @@ def shopping_cart_contents(request):
             product_count += item_data
             shopping_cart_items.append({
                 'item_id': item_id,
-                'quantity': item_data,
+                'quantity': item_data, #or 'quantity':quantity,??
                 'product': product,
             })
 
@@ -151,3 +152,4 @@ def shopping_cart_contents(request):
         }
 
     return context
+"""
