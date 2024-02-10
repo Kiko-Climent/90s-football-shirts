@@ -4,7 +4,6 @@ from django.contrib import messages
 from products.models import Product
 
 
-
 def view_shopping_cart(request):
     
     shopping_cart = request.session.get('shopping_cart', {})
