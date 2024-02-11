@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">CHECKOUT</h2>
+                <h2 class="logo-font mb-4 text-center">CHECKOUT</h2>
                 <hr>
             </div>
         </div>
@@ -61,13 +61,15 @@
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
+                        <p class="my-0">Discount:</p>
                         <p class="my-0">Shipping:</p>
                         <p class="my-0">Grand Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">${{ total | floatformat:2 }}</p>
-                        <p class="my-0">${{ shipping | floatformat:2 }}</p>
-                        <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                        <p class="my-0">{{ total | floatformat:2 }}€</p>
+                        <p class="my-0">{{ discount | floatformat:2 }} €</p>
+                        <p class="my-0">{{ shipping | floatformat:2 }}€</p>
+                        <p class="my-0"><strong>{{ grand_total | floatformat:2 }}€</strong></p>
                     </div>
                 </div>
             </div>

@@ -87,23 +87,31 @@ def shopping_cart_contents(request):
             })
 
     """ Discount calculator """
+    discount = 0
+    discounted_total = total
+    
     if total > settings.DISCOUNT_THRESHOLD:
         discount = total * Decimal(settings.DISCOUNT_PERCENTAGE / 100)
-        total -= discount
-        
-    """ Shipping costs calculator """
-    if total < settings.FREE_SHIPPING_THRESHOLD:
-        shipping = total * Decimal(settings.STANDARD_SHIPPING_PERCENTAGE / 100)
-        free_shipping_delta = settings.FREE_SHIPPING_THRESHOLD - total
+        discounted_total = total  # Initialize discounted total with the original total
+    
+        if total > settings.DISCOUNT_THRESHOLD:
+            discount = total * Decimal(settings.DISCOUNT_PERCENTAGE / 100)
+            discounted_total -= discount
+
+    if discounted_total < settings.FREE_SHIPPING_THRESHOLD:
+        shipping = discounted_total * Decimal(settings.STANDARD_SHIPPING_PERCENTAGE / 100)
+        free_shipping_delta = settings.FREE_SHIPPING_THRESHOLD - discounted_total
     else:
         shipping = 0
         free_shipping_delta = 0
     
-    grand_total = shipping + total
-    
+    grand_total = shipping + discounted_total
+
     context = {
         'shopping_cart_items': shopping_cart_items,
         'total': total,
+        'discounted_total': discounted_total,
+        'discount': discount,
         'product_count': product_count,
         'shipping': shipping,
         'free_shipping_delta': free_shipping_delta,
@@ -112,7 +120,6 @@ def shopping_cart_contents(request):
     }
 
     return context
-
 
 
 

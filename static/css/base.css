@@ -98,7 +98,7 @@ body {
 
 .btn-black {
     background: black;
-    border-radius: 5rem;
+    border-radius: 2rem;
 }
 
 .btn-outline-black {
@@ -304,8 +304,6 @@ a.category-badge > span.badge:hover {
 
 
 
-
-
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -390,6 +388,9 @@ a.category-badge > span.badge:hover {
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
+        padding-top: 116px;
+    }
+    .callout-container {
         padding-top: 116px;
     }
 
