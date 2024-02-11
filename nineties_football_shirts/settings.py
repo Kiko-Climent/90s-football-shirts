@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-kikocliment-90sfootball-pv0ptcxcw9y.ws-eu108.gitpod.io', 'nineties-football-shirts-8ef65f488fe9.herokuapp.com']
 
