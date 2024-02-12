@@ -111,7 +111,7 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     rating_form = RatingForm()
 
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated:
         # Handle form submission
         rating_form = RatingForm(request.POST)
         if rating_form.is_valid():
@@ -124,7 +124,9 @@ def product_detail(request, product_id):
     product_rating = product.ratings.aggregate(Avg('value'))['value__avg']
 
     # Check if the product is in the wishlist
-    product_in_wishlist = Wishlist.objects.filter(user=request.user, products=product).exists()
+    product_in_wishlist = False
+    if request.user.is_authenticated:
+        product_in_wishlist = Wishlist.objects.filter(user=request.user, products=product).exists()
 
     context = {
         'product': product,
