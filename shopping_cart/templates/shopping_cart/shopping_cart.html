@@ -14,7 +14,7 @@
     <div class="overlay"></div>
     <div class="container mb-2">
         <div class="row">
-            <div class="col">
+            <div class="col text-center">
                 <hr>
                 <h2 class="logo-font mb-4">SHOPPING CART</h2>
                 <hr>
@@ -30,36 +30,36 @@
                                     <th scope="col">Info:</th>
                                     <th scope="col"></th>
                                     <th scope="col">Price:</th>
-                                    <th scope="col">Qty:</th>
+                                    <th scope="col">Quantity:</th>
                                     <th scope="col">Subtotal:</th>
                                 </tr>
                             </thead>
 
                             {% for item in shopping_cart_items %}
                                 <tr>
-                                    <td class="p-3 w-25">
+                                    <td class="w-25">
                                         <img class="img-fluid rounded" src="{{ item.product.image.url }}">
                                     </td>
-                                    <td class="p-3">
+                                    <td class="">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                         <p class="my-0 d-none d-md-block"><strong>{{ item.product.team }}</strong></p>
                                         <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
-                                    <td class="p-3">
+                                    <td class="">
                                         {% if cheapest_item and cheapest_item.discounted_price is not none and cheapest_item.item_id == item.item_id %}
                                         <p class="my-0"><s>{{ item.product.price }} €</s> {{ cheapest_item.discounted_price }} €</p>
                                         {% else %}
                                         <p class="my-0">{{ item.product.price }} €</p>
                                         {% endif %}
                                     </td>
-                                    <td class="p-3 w-25">
+                                    <td class="w-25">
                                         <form class="form update-form" method="POST" action="{% url 'update_shopping_cart' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-black" 
+                                                        <button class="decrement-qty btn btn-sm btn-black qty-buton" 
                                                             data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                             <span>
                                                                 <i class="fas fa-minus fa-sm"></i>
@@ -71,7 +71,7 @@
                                                         data-item_id="{{ item.item_id }}"
                                                         id="id_qty_{{ item.item_id }}">
                                                     <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-sm btn-black"
+                                                        <button class="increment-qty btn btn-sm btn-black qty-buton"
                                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                             <span>
                                                                 <i class="fas fa-plus fa-sm"></i>
@@ -162,13 +162,13 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg">
+                                    <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg mb-2">
                                         <span class="icon">
                                             <i class="fas fa-chevron-circle-left"></i>
                                         </span>
                                         <span class="text-uppercase">Back to Shop</span>
                                     </a>
-                                    <a href="{% url 'purchase' %}" class="submit btn btn-black btn-lg">
+                                    <a href="{% url 'purchase' %}" class="submit btn btn-black btn-lg mb-2">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>

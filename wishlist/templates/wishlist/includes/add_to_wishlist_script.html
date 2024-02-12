@@ -1,4 +1,4 @@
-<script>
+<!--<script>
     $(document).ready(function () {
         var heartIcon = $('#heart-icon');
         var wishlistText = $('#wishlist-text');
@@ -49,4 +49,101 @@
             });
         });
     });
+</script>-->
+<!--<script>
+    $(document).ready(function () {
+    var heartIcon = $('#heart-icon');
+    var wishlistText = $('#wishlist-text');
+
+    // Check if the product is in the wishlist when the page loads
+    var checkWishlistUrl = $('.wishlist').attr('href');
+    $.ajax({
+        url: checkWishlistUrl,
+        method: 'GET',
+        success: function (data) {
+            if (data.in_wishlist) {
+                heartIcon.css('color', 'red');
+                wishlistText.text('Added to your wishlist');
+            }
+        },
+        error: function () {
+            console.log('AJAX error');
+        }
+    });
+
+    $('.add-to-wishlist').on('click', function (e) {
+        e.preventDefault();
+
+        var url = $(this).attr('href');
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function (data) {
+                if (data.success) {
+                    heartIcon.css('color', 'red');
+                    wishlistText.text('Added to your wishlist');
+                } else if (data.in_wishlist) {
+                    // Product is already in the wishlist
+                    heartIcon.css('color', 'red');
+                    wishlistText.text('Added to your wishlist');
+                }
+            },
+            error: function () {
+                console.log('AJAX error');
+            }
+        });
+    });
+});
+
+</script>-->
+<script>
+    $(document).ready(function () {
+        var heartIcon = $('#heart-icon');
+        var wishlistText = $('#wishlist-text');
+
+        // Check if the product is in the wishlist when the page loads
+        var checkWishlistUrl = $('.wishlist').attr('href');
+        $.ajax({
+            url: checkWishlistUrl,
+            method: 'GET',
+            success: function (data) {
+                if (data.in_wishlist) {
+                    heartIcon.css('color', 'red');
+                    wishlistText.text('Added to your wishlist');
+                }
+            },
+            error: function () {
+                console.log('AJAX error');
+            }
+        });
+
+        $('.add-to-wishlist').on('click', function (e) {
+            e.preventDefault();
+
+            // Check if the heart is already red (indicating the product is in the wishlist)
+            if (heartIcon.css('color') === 'rgb(255, 0, 0)') {
+                wishlistText.text('Added to your wishlist');
+                return;
+            }
+
+            // Update instantly on click
+            heartIcon.css('color', 'red');
+            wishlistText.text('Added to your wishlist');
+
+            var url = $(this).attr('href');
+
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function (data) {
+                    // Process the server response if needed
+                },
+                error: function () {
+                    console.log('AJAX error');
+                }
+            });
+        });
+    });
 </script>
+

@@ -366,6 +366,20 @@ a.category-badge > span.badge:hover {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+/* ----------------------------------- Footer */
+
+.footer-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #e9f0f0;
+    
+}
+
+.social-footer {
+    margin-bottom: 0;
+    border-bottom: 0;
+    text-align: center;
+}
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
@@ -398,3 +412,11 @@ a.category-badge > span.badge:hover {
         height: calc(100vh - 116px);
     }
 }
+
+/* MAKE QUANTITY BUTON TRANSPARENT ???????
+.qty-buton {
+    background-color: transparent;
+    color: #000;
+    font-weight: bold;
+}
+*/

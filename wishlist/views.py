@@ -37,10 +37,13 @@ def add_to_wishlist(request, item_id):
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
 
     in_wishlist = wishlist.products.filter(pk=item_id).exists()
-
+        #  OLD ONE!!!
+    #if in_wishlist:
+        # Product is already in the wishlist
+    #    return JsonResponse({'in_wishlist': True})
     if in_wishlist:
         # Product is already in the wishlist
-        return JsonResponse({'in_wishlist': True})
+        return JsonResponse({'in_wishlist': True, 'success': False})
 
     wishlist.products.add(product)
     # Product added to the wishlist

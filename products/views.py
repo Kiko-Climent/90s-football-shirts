@@ -7,6 +7,7 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
 from ratings.forms import RatingForm
+from wishlist.models import Wishlist
 
 
 def all_products(request):
@@ -79,7 +80,7 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
-
+"""
 def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
@@ -102,6 +103,34 @@ def product_detail(request, product_id):
         'product': product,
         'rating_form': rating_form,
         'product_rating': product_rating,
+    }
+
+    return render(request, 'products/product_detail.html', context)
+"""
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    rating_form = RatingForm()
+
+    if request.method == 'POST':
+        # Handle form submission
+        rating_form = RatingForm(request.POST)
+        if rating_form.is_valid():
+            new_rating = rating_form.save(commit=False)
+            new_rating.product = product
+            new_rating.user = request.user
+            new_rating.save()
+
+    # Fetch the updated average rating
+    product_rating = product.ratings.aggregate(Avg('value'))['value__avg']
+
+    # Check if the product is in the wishlist
+    product_in_wishlist = Wishlist.objects.filter(user=request.user, products=product).exists()
+
+    context = {
+        'product': product,
+        'rating_form': rating_form,
+        'product_rating': product_rating,
+        'product_in_wishlist': product_in_wishlist,
     }
 
     return render(request, 'products/product_detail.html', context)
