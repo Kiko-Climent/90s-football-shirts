@@ -39,7 +39,7 @@
     <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-search fa-lg"></i></div>
-            <p class="my-0">Search</p>
+            <p class="my-0 d-none d-md-block">Search</p>
         </div>
     </a>
     <div class="dropdown-menu border-0 w-100 p-3 my-0" aria-labelledby="mobile-search">
@@ -61,7 +61,7 @@
     <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-circle-user fa-lg"></i></div>
-            <p class="my-0">{% if user.is_authenticated %}{{ user.username }}{% else %}My Account{% endif %}</p>
+            <p class="my-0 d-none d-md-block">{% if user.is_authenticated %}{{ user.username }}{% else %}My Account{% endif %}</p>
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -75,6 +75,7 @@
         {% else %}
             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            <a href="{% url 'contact' %}" class="dropdown-item">Contact</a>
         {% endif %}
     </div>
 </li>

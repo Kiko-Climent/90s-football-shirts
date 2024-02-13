@@ -47,11 +47,7 @@
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="">
-                                        {% if cheapest_item and cheapest_item.discounted_price is not none and cheapest_item.item_id == item.item_id %}
-                                        <p class="my-0"><s>{{ item.product.price }} €</s> {{ cheapest_item.discounted_price }} €</p>
-                                        {% else %}
-                                        <p class="my-0">{{ item.product.price }} €</p>
-                                        {% endif %}
+                                        <p class="my-0">{{ item.product.price }}€</p>
                                     </td>
                                     <td class="w-25">
                                         <form class="form update-form" method="POST" action="{% url 'update_shopping_cart' item.item_id %}">
@@ -111,11 +107,11 @@
                                             <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
                                         {% endif %}
                                     </td>-->
-                                    <td class="py-3">
+                                    <td class="">
                                         {% if cheapest_item and cheapest_item.discounted_price is not none and cheapest_item.item_id == item.item_id %}
                                             <p class="my-0">{{ cheapest_item.discounted_price | calc_subtotal:item.quantity }} €</p>
                                         {% else %}
-                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
+                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }}€</p>
                                         {% endif %}
                                     </td>
                                     

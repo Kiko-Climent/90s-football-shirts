@@ -193,9 +193,43 @@ a.category-badge > span.badge:hover {
     z-index: 9999999;
 }
 
+/*------------------------------Toasts*/
+
 .custom-toast {
     overflow: visible;
+    background-color: #ddebda;
 }
+.toast-header-success {
+    background-color: #4ca846;
+    font-size: medium;
+}
+.toast-body-success {
+    background-color: #ddebda;
+}
+
+.toast-header-info {
+    background-color: #42a3b9;
+    font-size: medium;
+}
+.toast-body-info {
+    background-color: #dae9eb;
+}
+.toast-header-warning {
+    background-color: #ffc107;
+    font-size: medium;
+}
+.toast-body-warning {
+    background-color: #ffc10778;
+}
+
+.toast-header-error {
+    background-color: #dc3545;
+    font-size: medium;
+}
+.toast-body-error {
+    background-color: #dc353575;
+}
+
 
 .toast-capper {
     height: 2px;
@@ -277,6 +311,9 @@ a.category-badge > span.badge:hover {
     color: black !important;
 }
 
+.btn-purchase-success {
+    color: #e9f0f0;
+}
 
 /* -------------------------------- Contact */
 /*.overlay-contact {
@@ -420,3 +457,4 @@ a.category-badge > span.badge:hover {
     font-weight: bold;
 }
 */
+

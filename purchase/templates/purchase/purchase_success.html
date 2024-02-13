@@ -61,12 +61,17 @@
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="small mb-0 text-black font-weight-bold">
-                                <!-- error rendering the size, needs to be check -->
+                                <!-- error rendering the size, needs to be check 
                                 {{ item.product.team }}{% if item.product_size %} - Size {{ item.product.size|upper }}{% endif %}
                                 {{ item.product.team }}{% if item.size %} - Size {{ item.size|upper }}{% else %}N/A{% endif %}
                                 {{ item.product.team }}{% if item.product_size %} - Size {{ item.product.size|upper }}{% endif %}
                                 {{ item.product.team }}{% if item.size %}{{ item.size|upper }}{% endif %}
                                 {{ item.product.team }}{% if item.size %}{{ item.size|upper }}{% else %}N/A{% endif %}
+                                -->
+                                
+                                {{ item.product.team }}{% if item.size %} - Size {{ item.size|upper }}{% else %}N/A{% endif %}
+                                <br>
+                                {{ item.product.team }}{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
                             </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
@@ -182,6 +187,14 @@
                             <p class="mb-0">{{ order.shipping_cost }}</p>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <p class="mb-0 text-black font-weight-bold">Discount</p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0">{{ order.discount }}</p>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-12 col-md-4">
@@ -204,7 +217,7 @@
                         <span class="text-uppercase">Back to Profile</span>
                     </a>
                 {% else %}
-                    <a href="{% url 'products' %}" class="btn btn-black my-2">
+                    <a href="{% url 'products' %}" class="btn btn-black my-2 btn-purchase-success">
                         <span class="icon mr-2">
                             <i class="fa-solid fa-shirt"></i>
                         </span>

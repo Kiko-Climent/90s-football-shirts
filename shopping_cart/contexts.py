@@ -121,9 +121,6 @@ def shopping_cart_contents(request):
 
     return context
 
-
-
-
 """   
 
 #    Context to implement the discount:
