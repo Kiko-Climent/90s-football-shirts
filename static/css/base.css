@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     height: 100%;
 }
@@ -409,6 +415,7 @@ a.category-badge > span.badge:hover {
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: #e9f0f0;
+    width: 100% !important;
     
 }
 
