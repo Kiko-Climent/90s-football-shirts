@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /shopping_cart/
+Disallow: /purchase/
+Disallow: /wishlist/
+Sitemap: <!-- DEPLOYED VERSION + /sitemap.xml

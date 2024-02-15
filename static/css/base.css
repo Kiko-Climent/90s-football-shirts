@@ -465,3 +465,10 @@ a.category-badge > span.badge:hover {
 }
 */
 
+.container-404 {
+    background: url('https://res.cloudinary.com/dzlveh6fi/image/upload/v1707468455/baggio_cfx3ob.webp');
+}
+
+.logo-404 {
+    background-color: #e9f0f0;
+}
