@@ -65,3 +65,7 @@ select option[value=""] {
     height: 100%;
     color: #000;
 }
+
+.icon-purchase {
+    color: #000000;
+}

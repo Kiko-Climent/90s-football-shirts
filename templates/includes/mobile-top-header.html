@@ -72,6 +72,7 @@
             <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
             <a href="{% url 'wishlist' %}" class="dropdown-item">My Wishlist</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            <a href="{% url 'contact' %}" class="dropdown-item">Contact</a>
         {% else %}
             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
@@ -80,7 +81,7 @@
     </div>
 </li>
 <li class="list-inline-item">
-    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'shopping_cart' %}">
+    <a class="{% if grand_total %}color-cart font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'shopping_cart' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-cart fa-lg"></i></div>
             <p class="my-0">
