@@ -170,13 +170,19 @@ The landing page, where the user initially arrives, serves as the starting point
 ![](media/readme_media/shipping_details.png)
 ![](media/readme_media/products_resume.png)
 ![](media/readme_media/payment_information.png)
-![](media/readme_media/order_confirmation_email.png)
 
 ### Purchase-Success:
 ![](media/readme_media/purchase_success.png)
+![](media/readme_media/order_confirmation_email.png)
 
 ### User's Profile:
 ![](/media/readme_media/users_profile.png)
+
+## Contact
+![](/media/readme_media/contact_form.png)
+
+### Contact Success
+![](/media/readme_media/contact_success.png)
 
 ### Management / Add New Product:
 ![](/media/readme_media/add_product.png)

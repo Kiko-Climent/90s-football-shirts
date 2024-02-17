@@ -27,8 +27,9 @@ body {
 }
 
 .jumbotron {
-    background-color: #ffffff6b;
+    background-color: #ffffffa8;
     border-radius: 4rem;
+    letter-spacing: 2px;
 }
 
 .jumbotron-header {
