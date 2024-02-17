@@ -60,9 +60,12 @@
                     {% for item in order.orderdetails.all %}
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <p class="small mb-0 text-black font-weight-bold">
+                            <!--<p class="small mb-0 text-black font-weight-bold">
                                 {{ item.product.team }}{% if item.size %} - Size {{ item.size|upper }}{% else %}N/A{% endif %}
                                 <br>
+                                {{ item.product.team }}{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
+                            </p>-->
+                            <p class="small mb-0 text-black font-weight-bold">                                
                                 {{ item.product.team }}{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
                             </p>
                         </div>

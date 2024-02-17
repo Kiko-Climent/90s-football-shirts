@@ -235,7 +235,7 @@ a.category-badge > span.badge:hover {
 }
 
 .toast-header-error {
-    background-color: #dc3545;
+    background-color: #d75d72;
     font-size: medium;
 }
 .toast-body-error {
@@ -252,16 +252,7 @@ a.category-badge > span.badge:hover {
     background-color: #e9f0f0;
 }
 
-/*.card-item {
-    border: 1px solid black;
-}*/
 
-
-
-/* a.category-badge > span.badge:hover {
-    background: #212529 !important;
-    color: #fff !important;
-} */
 
 /* --------------------------------- products */
 .btn-file {
@@ -328,31 +319,11 @@ a.category-badge > span.badge:hover {
 }
 
 /* -------------------------------- Contact */
-/*.overlay-contact {
-    background: url('https://res.cloudinary.com/dzlveh6fi/image/upload/v1707468454/beckam_rlksmr.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    color: black;
-    font-family: 'Kanit', 'sans-serif';
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.jumbotron-contact {
-    background-color: #ffffff6b;
-    border-radius: 2rem;
-}
-
 .back-shop-button {
     background: black;
     color: #e9f0f0;
     border-radius: 2rem;
 }
-*/
-
-
-
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -363,7 +334,6 @@ a.category-badge > span.badge:hover {
 }
 
 /* Allauth form formatting */
-
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
     color: black; /* text-secondary */
@@ -415,10 +385,10 @@ a.category-badge > span.badge:hover {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+
 /* ----------------------------------- Footer */
 
-.footer-container {
-    
+.footer-container {  
     background-color: #e9f0f0;
     width: 100% !important;
     

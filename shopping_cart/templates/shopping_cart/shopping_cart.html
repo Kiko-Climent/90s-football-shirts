@@ -39,12 +39,15 @@
                                 <tr>
                                     <td class="w-25">
                                         <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                                        <p class="my-0 my-0 small text-muted d-block d-md-none"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                        <p class="my-0 my-0 small text-muted d-block d-md-none">SKU: {{ item.product.sku|upper }}</p>
+                                        
+                                        
                                     </td>
                                     <td class="">
-                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                         <p class="my-0 d-none d-md-block"><strong>{{ item.product.team }}</strong></p>
-                                        <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                        <p class="my-0 d-none d-sm-block"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                        <p class="my-0 small text-muted d-none d-sm-block">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="">
                                         <p class="my-0">{{ item.product.price }}€</p>
