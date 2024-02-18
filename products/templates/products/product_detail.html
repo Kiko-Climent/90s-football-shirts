@@ -39,15 +39,13 @@
                             <span id="wishlist-text">{% if product_in_wishlist %}Added to your wishlist{% else %}ADD TO WISHLIST{% endif %}</span>
                         </a>
                     {% endif %}
-
                     {% if product.category %}
                     <p class="small mt-1 mb-0">
                         <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
                             <i class="fas fa-futbol mr-1"></i>{{ product.category.friendly_name }}
                         </a>
                     </p>
-                    {% endif %}
-                    
+                    {% endif %}                   
                     <!--<small class=" text-muted mt-4"><i class="fas fa-star mr-1"></i>Ratings: </small>
                     {% if product_rating %}
                         <small class="text-muted">{{ product_rating|floatformat:1 }} / 5</small>
@@ -82,8 +80,7 @@
                                 <button type="submit" class="btn btn-sm btn-rating">Submit Rating</button>
                             </form>
                         </div>
-                    {% endif %}
-                                                                     
+                    {% endif %}                                                                    
                     {% if request.user.is_superuser %}
                         <br>
                         <small class="mb-0 text-muted"><i class="fa-solid fa-user-tie"></i> Management:

@@ -10,14 +10,13 @@ The Deployed version of the site can be found here:
 # UX
 
 ## Target Audience
-
 The target audience of 90's Football Club extends beyond individuals interested solely in sports or football. We aim to appeal to those who have an interest in vintage fashion. Additionally, we seek to tap into consumers' nostalgia by revisiting prominent football figures and events from the 1990s
 
 ## User Stories
 
-## As a Site User
-
 **EPIC: Registration and Profile**
+
+***Site User:***
 * As a _site user_ I can be able to _register_ a new account, so i have a _personal account and profile_
 * As a _site user_ I can easily *log in* and _log out_ so i can have _access to my personal account_
 * As a _site user_ I can _recover_ my password so i can _get access to my account again_
@@ -59,7 +58,9 @@ The target audience of 90's Football Club extends beyond individuals interested 
 * As a _Site User_ I can _update my ratings_ so that _I can reflect any changes in my experience_
 ...
 ...
-* A list of detailed _Acceptance Criteria_ and _Tasks_ for each User Story can be found here:
+
+### A list of detailed _Acceptance Criteria_ and _Tasks_ for each User Story can be found here:
+![]()
 
 ## As Admin
 
@@ -110,6 +111,7 @@ The landing page, where the user initially arrives, serves as the starting point
 ![]()
 
 ### Header and Navigation:
+Logo site centered, with the search bar displaying on the left while the link to the shopping cart and the user's acount menu displaying on the right.
 ![](media/readme_media/logo_header_nav.png)
 
 ### Home Image and Call-to-Action:
@@ -120,21 +122,45 @@ The landing page, where the user initially arrives, serves as the starting point
 ![](media/readme_media/info_shipping.png)
 
 ### Footer:
+In the footer, visitors can access our Facebook page through a provided link, explore external links containing relevant information, and have the option to subscribe to our newsletter.
 ![]()
 
-### My Account (Admin):
-![](media/readme_media/account_admin.png)
-
 ### My Account (User):
+For users who are already registered and have an account, the user menu will display their benefits, such as having a user _Profile_ and their own _Wishlist_. The _Contact Form_ will be a benefit enjoyed by those users who are not registered as well.
+
 ![](media/readme_media/account_user.png)
 
+### My Account (Admin):
+Unlike the user menu for those who are registered, the admin menu provides a direct link to the _Management_ section where the admin can add new products to the store through a new interface.
+
+![](media/readme_media/account_admin.png)
+
 ### Categories:
+
+Users have the ability to navigate through the different categories of the page.
+
+- In the *All Products* section, users can access all the products in the store, and they will be able to sort them by _Price_ or _Rating._
+
+- *Clubs:* Here, products in the store are organized by leagues, including the _Premier League, La Liga, Serie A, Bundesliga,_ and a general category including products from _Other leagues._
+
+- _*National Teams:*_ In this section, products belonging to national teams will be selected, with subcategories organized by continent.
+
+- _Brands:_ Finally, users will also be able to view products sorted by sports _brands_ such as _Adidas, Nike, Umbro, Puma,_ etc.
+
 ![](media/readme_media/category_all_products.png)
 ![](media/readme_media/category_clubs.png)
 ![](media/readme_media/category_national.png)
 ![](media/readme_media/category_brands.png)
 
+## Registrartion:
+### Sign Up:
+As mentioned earlier, and although it's possible to place orders for non-registered users, users should register to access their profiles and have control over the wishlist.
+
+![](media/readme_media/sign_up.png)
+
 ### Log In page:
+For already registered users, the form to access the user profile is straightforward. Username and password are the only required fields.
+
 ![](media/readme_media/log_in_page.png)
 
 ### Log In Success:
@@ -143,57 +169,92 @@ The landing page, where the user initially arrives, serves as the starting point
 ### Log Out:
 ![](media/readme_media/log_out.png)
 
-### Sign Up:
-![](media/readme_media/sign_up.png)
-
+## Products:
 ### All Products Page:
+The view of all products includes a brief description of the item, which comprises the _Team Name, _Price, Sports Brand, Category or League_ in which the product is located, and the product's _Rating._
+
 ![](media/readme_media/all_products_page.png)
 
 ### Product Detail Page:
+Selecting a desired item, we enter the product details, where a slightly longer description takes center stage. In addition to the fields mentioned earlier, the product includes a brief text describing the team, its achievements, and some interesting memorabilia.
+
+_Size_ and _Quantity_ selection buttons are included, with a maximum of 5 units per item, as the allowed maximum.
+
+At the bottom, users will find buttons to _Add the item_ to the _Shopping Cart_ and another one to navigate back to the complete list of products.
+
+For registered users, the possibility to submit their own rating and add the product to their wishlist will also be available.
+
 ![](media/readme_media/product_detail.png)
 
 ### Product Detail Info:
 ![](media/readme_media/product_detail_info.png)
 
-### Rating:
+## Rating:
+Upon clicking the _Ratings_ icon, the user will be shown a dropdown menu where they can enter their own rating
+
 ![](media/readme_media/rating.png)
 
-### User's Wishlist:
+## User's Wishlist:
+Regarding the _Wishlist,_ Users can add items to the wishlist by clicking the Heart icon in the product description. The _Wishlist_ will display the products selected by the registered user in the product detail view. It's quite simple, including only the _Image, Team, Price,_ and two buttons—one to access the _Product Details_ again and another to _Remove_ it from the wishlist.
+
 ![](media/readme_media/wishlist.png)
 
-### Shopping Cart:
+## Shopping Cart:
+The shopping cart will show all users the products they have previously added. Here, in addition to the image, the team's name, and the price, the selected size and quantity will be displayed, with the option to update or remove the quantity. In the same row, a column for the product subtotal will also be available.
+
 ![](media/readme_media/shopping_cart.png)
+
+At the bottom, a cost _breakdown_ will be provided to the user. This includes the total price _before discount_, the amount to be _discounted (if applicable),_ as well as the _shipping costs (if applicable),_ and the _Grand Total,_ which is the amount the user needs to pay.
+
+Finally, the user will find a button to return to the store and another one to proceed to the checkout page.
+
 ![](media/readme_media/amount_with_discount.png)
 
-### Purchase:
+## Purchase:
+On the Purchase page, we find a _summary_ of the user's cart at the top right. Meanwhile, on the left side, there is a form where the user will enter the _shipping details_ for the products about to be purchased. Just below, there is a field to enter _credit card information,_ as well as two buttons—one to _proceed_ with the payment and another to go _back to the cart_ in case any modifications are desired.
+
 ![](media/readme_media/purchase.png)
 ![](media/readme_media/shipping_details.png)
 ![](media/readme_media/products_resume.png)
 ![](media/readme_media/payment_information.png)
 
 ### Purchase-Success:
+After the payment has been processed, the user will be redirected to the _Purchase Success_ page. In addition to a _confirmation message_ at the top, the _details_ related to the purchase will be displayed. A _Confirmation email_ will also be sent to the email address provided by the user earlier.
+
 ![](media/readme_media/purchase_success.png)
 ![](media/readme_media/order_confirmation_email.png)
 
+## Profile:
 ### User's Profile:
+The user profile consists of 2 sections, the first one with the _shipping details_ of the users that can be modified if the user wishes, and another section where the _Previous Orders_ will be stored.
+
 ![](/media/readme_media/users_profile.png)
 
 ## Contact
+### Contact Form:
+The _Contact form,_ available in the dropdown menu of the _accounts icon,_ is accessible to _all users,_ whether registered or not. In it, the fields to provide a response are mandatory. As for the _Subject,_ the user can choose between _General Inquiry_ or _Product._ Another dropdown menu that includes a list of all the products in the store will also be provided to ensure a good experience for both the admin and the user. In the _Message_ field, the user can explain the inquiry to the administrator.
+
 ![](/media/readme_media/contact_form.png)
 
 ### Contact Success
+Once the fields have been filled out successfully, a confirmation message as well as an email will be provided to the user.
+
 ![](/media/readme_media/contact_success.png)
 
-### Management / Add New Product:
+## Management:
+The page administrator will have the ability to create new content for the page, as well as edit or delete existing content.
+
+In the "accounts" icon, only the authenticated administrator will see a link labeled "Management," which will redirect them to the page for uploading new products to the store.
+### Add New Product:
+The form for _adding new products_ to the store includes all the fields that will later be displayed in the product _description_ within the _Product Detail_ page.
 ![](/media/readme_media/add_product.png)
 
-### Edit Product:
-![](/media/readme_media/edit_product.png)
+### Edit / Delete Product:
+Within the Product Detail page, if the authenticated user is the administrator, a new field will be displayed in the description where they can update or delete the product. Both links are also avilable from the _All Products_ page.
 
-### Delete Product:
 ![](/media/readme_media/delete_product.png)
-
-
+![](/media/readme_media/edit_product.png)
+![](media/readme_media/all_products_management.png)
 
 
 ...

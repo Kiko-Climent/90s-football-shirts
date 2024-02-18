@@ -2,10 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 html {
     height: 100%;
+    letter-spacing: 1px;
 }
 
 body {
@@ -399,6 +401,17 @@ a.category-badge > span.badge:hover {
     margin-bottom: 0;
     border-bottom: 0;
     text-align: center;
+}
+
+.external-links {
+    color: #2945f3;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.external-links:hover {
+    text-decoration: none;
+    color: #d75d72;
 }
 
 /* ----------------------------------- Mailchimp */

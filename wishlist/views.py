@@ -12,11 +12,17 @@ from profiles.models import UserProfile
 
 @login_required
 def wishlist(request):
-    wishlist = get_object_or_404(Wishlist, user=request.user)
+    try:
+        wishlist = Wishlist.objects.get(user=request.user)
+    except Wishlist.DoesNotExist:
+        # If no wishlist is found, create an empty wishlist for the user
+        wishlist = Wishlist.objects.create(user=request.user)
+
     context = {
         'wishlist': wishlist
     }
     return render(request, 'wishlist/wishlist.html', context)
+
 """
 @login_required
 def add_to_wishlist(request, item_id):
