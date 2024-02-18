@@ -3,192 +3,148 @@
 {% load shopping_cart_tools %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container mb-2">
-        <div class="row">
-            <div class="col text-center">
-                <hr>
-                <h2 class="logo-font mb-4">SHOPPING CART</h2>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                {% if shopping_cart_items %}
-                    <div class="table-responsive rounded">
-                        <table class="table table-sm table-borderless">
-                            <thead class="text-black">
-                                <tr>
-                                    <th scope="col">Info:</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Price:</th>
-                                    <th scope="col">Quantity:</th>
-                                    <th scope="col">Subtotal:</th>
-                                </tr>
-                            </thead>
-
-                            {% for item in shopping_cart_items %}
-                                <tr>
-                                    <td class="w-25">
-                                        <img class="img-fluid rounded" src="{{ item.product.image.url }}">
-                                        <p class="my-0 my-0 small text-muted d-block d-md-none"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                                        <p class="my-0 my-0 small text-muted d-block d-md-none">SKU: {{ item.product.sku|upper }}</p>
-                                        
-                                        
-                                    </td>
-                                    <td class="">
-                                        <p class="my-0 d-none d-md-block"><strong>{{ item.product.team }}</strong></p>
-                                        <p class="my-0 d-none d-sm-block"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                                        <p class="my-0 small text-muted d-none d-sm-block">SKU: {{ item.product.sku|upper }}</p>
-                                    </td>
-                                    <td class="">
-                                        <p class="my-0">{{ item.product.price }}€</p>
-                                    </td>
-                                    <td class="w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'update_shopping_cart' item.item_id %}">
-                                            {% csrf_token %}
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-black qty-buton" 
-                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input class="form-control form-control-sm qty_input" type="number"
-                                                        name="quantity" value="{{ item.quantity }}" min="1" max="5"
-                                                        data-item_id="{{ item.item_id }}"
-                                                        id="id_qty_{{ item.item_id }}">
-                                                    <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-sm btn-black qty-buton"
-                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    {% if item.product.has_sizes %}
-                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
-                                    </td>
-                                    <!--<td class="py-3">
-                                        <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
-                                    </td>-->
-                                    <!--<td class="py-3">
-                                        {% if discount_item and item == discount_item %}
-                                            <p class="my-0">{{ item.discounted_price | calc_subtotal:item.quantity }} €</p>
-                                        {% else %}
-                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
-                                        {% endif %}
-                                    </td>-->
-                                    <!--<td class="py-3">
-                                        {% if item.discounted_price %}
-                                            <p class="my-0">{{ item.discounted_price | calc_subtotal:item.quantity }} €</p>
-                                        {% else %}
-                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
-                                        {% endif %}
-                                    </td>-->
-                                   <!--<td class="py-3">
-                                        {% if cheapest_item.discounted_price %}
-                                            <p class="my-0">{{ cheapest_item.discounted_price | calc_subtotal:item.quantity }} €</p>
-                                        {% else %}
-                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }} €</p>
-                                        {% endif %}
-                                    </td>-->
-                                    <td class="">
-                                        {% if cheapest_item and cheapest_item.discounted_price is not none and cheapest_item.item_id == item.item_id %}
-                                            <p class="my-0">{{ cheapest_item.discounted_price | calc_subtotal:item.quantity }} €</p>
-                                        {% else %}
-                                            <p class="my-0">{{ item.product.price | calc_subtotal:item.quantity }}€</p>
-                                        {% endif %}
-                                    </td>
-                                    
-                                    <!--<td class="py-3">
-                                        {% if cheapest_item.discounted_price %}
-                                            <p class="my-0">Discounted Price: {{ cheapest_item.discounted_price }} €</p>
-                                            <p class="my-0">Discount: {{ cheapest_item.discount }} €</p>
-                                            <p class="my-0">Subtotal: {{ cheapest_item.discounted_price | calc_subtotal:item.quantity }} €</p>
-                                        {% else %}
-                                            <p class="my-0">Original Price: {{ item.product.price }} €</p>
-                                            <p class="my-0">Subtotal: {{ item.product.price | calc_subtotal:item.quantity }} €</p>
-                                        {% endif %}
-                                    </td>-->
-                                    
-                                </tr>
-                            {% endfor %}
-                            <!-- THIS IS THE OLD ONE!!!
-                                <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Shopping Cart Total: {{ total|floatformat:2 }} €</strong></h6>
-                                    <h6>Shipping:{{ shipping|floatformat:2 }} €</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: {{ grand_total|floatformat:2 }} €</strong></h4>
-                                    {% if free_delivery_delta > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get free shipping by spending just <strong>${{ free_shipping_delta }}</strong> more!
-                                        </p>
-                                    {% endif %}
-                                </td>
-                            </tr>-->
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Shopping Cart Total (Before Discount): {{ total|floatformat:2 }} €</strong></h6>
-                                    {% if discount and discount > 0 %}
-                                        <h6>Discount Applied: {{ discount|floatformat:2 }} €</h6>
-                                    {% endif %}
-                                    <h6>Shipping: {{ shipping|floatformat:2 }} €</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: {{ grand_total|floatformat:2 }} €</strong></h4>
-                                    {% if free_shipping_delta > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get free shipping by spending just <strong>${{ free_shipping_delta }}</strong> more!
-                                        </p>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg mb-2">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-circle-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Back to Shop</span>
-                                    </a>
-                                    <a href="{% url 'purchase' %}" class="submit btn btn-black btn-lg mb-2">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                {% else %}
-                    <p class="lead mb-5">Your Shopping Cart is empty</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg">
-                        <span class="icon">
-                            <i class="fa-solid fa-shirt"></i>
-                        </span>
-                        <span>Back to Shop</span>
-                    </a>
-                {% endif %}
-            </div>
+<div class="overlay"></div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col text-center">
+            <hr>
+            <h2 class="logo-font mb-4">SHOPPING CART</h2>
+            <hr>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            {% if shopping_cart_items %}
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Info:</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price:</th>
+                            <th scope="col" class="text-center">Quantity:</th>
+                            <th scope="col">Subtotal:</th>
+                        </tr>
+                    </thead>
+
+                    {% for item in shopping_cart_items %}
+                    <tr>
+                        <td class="w-25">
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                            <p class="my-0 my-0 small text-muted d-block d-md-none"><strong>Size:
+                                </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
+                            </p>
+                            <p class="my-0 my-0 small text-muted d-block d-md-none">SKU: {{ item.product.sku|upper }}
+                            </p>
+                        </td>
+                        <td>
+                            <p class="my-0 d-none d-md-block"><strong>{{ item.product.team }}</strong></p>
+                            <p class="my-0 d-none d-sm-block"><strong>Size:
+                                </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
+                            </p>
+                            <p class="my-0 small text-muted d-none d-sm-block">SKU: {{ item.product.sku|upper }}</p>
+                        </td>
+                        <td>
+                            <p class="my-0">{{ item.product.price }}€</p>
+                        </td>
+                        <td class="w-25">
+                            <form class="form update-form" method="POST"
+                                action="{% url 'update_shopping_cart' item.item_id %}">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-sm btn-black qty-buton"
+                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-minus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control form-control-sm qty_input" type="number"
+                                            name="quantity" value="{{ item.quantity }}" min="1" max="5"
+                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-sm btn-black qty-buton"
+                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-plus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        {% if item.product.has_sizes %}
+                                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </form>
+                            <a class="update-link text-info"><small>Update</small></a>
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"
+                                data-product_size="{{ item.size }}"><small>Remove</small></a>
+                        </td>
+                        <td>
+                            {% if cheapest_item and cheapest_item.discounted_price is not none and cheapest_item.item_id == item.item_id %}
+                            <p class="my-0">{{ cheapest_item.discounted_price | calc_subtotal:item.quantity }} €</p>
+                            {% else %}
+                            <p class="my-0 ml-2">{{ item.product.price | calc_subtotal:item.quantity }}€</p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <h6><strong>Shopping Cart Total (Before Discount): {{ total|floatformat:2 }} €</strong></h6>
+                            {% if discount and discount > 0 %}
+                            <h6>Discount Applied: {{ discount|floatformat:2 }} €</h6>
+                            {% endif %}
+                            <h6>Shipping: {{ shipping|floatformat:2 }} €</h6>
+                            <h4 class="mt-4"><strong>Grand Total: {{ grand_total|floatformat:2 }} €</strong></h4>
+                            {% if free_shipping_delta > 0 %}
+                            <p class="mb-1 text-danger">
+                                You could get free shipping by spending just <strong>${{ free_shipping_delta }}</strong>
+                                more!
+                            </p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg mb-2">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-circle-left"></i>
+                                </span>
+                                <span class="text-uppercase">Back to Shop</span>
+                            </a>
+                            <a href="{% url 'purchase' %}" class="submit btn btn-black btn-lg mb-2">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% else %}
+            <p class="lead mb-5">Your Shopping Cart is empty</p>
+            <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg">
+                <span class="icon">
+                    <i class="fa-solid fa-shirt"></i>
+                </span>
+                <span>Back to Shop</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
@@ -221,30 +177,33 @@
 
 <script>
     if (window.jQuery) {
-      $(document).ready(function() {
-        $('.update-link').click(function(e) {
-          var form = $(this).prev('.update-form');
-          form.submit();
+        $(document).ready(function () {
+            $('.update-link').click(function (e) {
+                var form = $(this).prev('.update-form');
+                form.submit();
+            });
+
+            // Remove item and reload page
+            $('.remove-item').click(function (e) {
+                var csrfToken = "{{ csrf_token }}";
+                var itemId = $(this).attr('id').split('remove_')[1];
+                var size = $(this).data('product_size');
+                console.log("Removing item:", itemId, "Size:", size);
+                var url = `/shopping_cart/remove/${itemId}/`;
+                var data = {
+                    'csrfmiddlewaretoken': csrfToken,
+                    'size': size
+                };
+
+                $.post(url, data)
+                    .done(function () {
+                        location.reload();
+                    });
+            });
         });
-  
-        // Remove item and reload page
-        $('.remove-item').click(function(e) {
-          var csrfToken = "{{ csrf_token }}";
-          var itemId = $(this).attr('id').split('remove_')[1];
-          var size = $(this).data('product_size');
-          console.log("Removing item:", itemId, "Size:", size);
-          var url = `/shopping_cart/remove/${itemId}/`;
-          var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
-  
-          $.post(url, data)
-           .done(function() {
-               location.reload();
-           });
-        });
-      });
     } else {
-      console.error("jQuery is not loaded.");
+        console.error("jQuery is not loaded.");
     }
-  </script>
-  
+</script>
+
 {% endblock %}

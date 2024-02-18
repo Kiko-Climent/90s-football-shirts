@@ -77,33 +77,6 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
-
-"""
-def product_detail(request, product_id):
-
-    product = get_object_or_404(Product, pk=product_id)
-    rating_form = RatingForm()
-
-    if request.method == 'POST':
-        # Handle form submission
-        rating_form = RatingForm(request.POST)
-        if rating_form.is_valid():
-            new_rating = rating_form.save(commit=False)
-            new_rating.product = product
-            new_rating.user = request.user
-            new_rating.save()
-
-    # Fetch the updated average rating
-    product_rating = product.ratings.aggregate(Avg('value'))['value__avg']
-
-
-    context = {
-        'product': product,
-        'rating_form': rating_form,
-        'product_rating': product_rating,
-    }
-
-    return render(request, 'products/product_detail.html', context)
 """
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
@@ -134,6 +107,53 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+"""
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    rating_form = RatingForm()
+
+    if request.method == 'POST' and request.user.is_authenticated:
+        # Handle form submission
+        rating_form = RatingForm(request.POST)
+        if rating_form.is_valid():
+            new_rating = rating_form.save(commit=False)
+            new_rating.product = product
+            new_rating.user = request.user
+            new_rating.save()
+
+    # Fetch the updated average rating
+    user_product_rating = product.ratings.aggregate(Avg('value'))['value__avg']
+
+    # Check if there's an admin or default rating
+    admin_rating = float(product.rating) if product.rating is not None else None
+
+    # Consider both user ratings and admin/default rating when calculating the average
+    if user_product_rating is not None:
+        total_ratings = product.ratings.count()  # Count of user ratings
+        total_rating_value = total_ratings * user_product_rating
+
+        if admin_rating is not None:
+            total_ratings += 1  # Include admin rating in the count
+            total_rating_value += admin_rating
+
+        average_rating = total_rating_value / total_ratings
+    else:
+        average_rating = admin_rating  # Display admin/default rating if no user rating is available
+
+    # Check if the product is in the wishlist
+    product_in_wishlist = False
+    if request.user.is_authenticated:
+        product_in_wishlist = Wishlist.objects.filter(user=request.user, products=product).exists()
+
+    context = {
+        'product': product,
+        'rating_form': rating_form,
+        'product_rating': average_rating,
+        'product_in_wishlist': product_in_wishlist,
+    }
+
+    return render(request, 'products/product_detail.html', context)
+
 
 @login_required
 def add_product(request):

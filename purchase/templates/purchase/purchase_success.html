@@ -17,15 +17,15 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col mx-auto">
                 <hr>
-                <h2 class="logo-font mb-4">THANKS!!</h2>
+                <h2 class="logo-font mb-4 text-center">THANKS!!</h2>
                 <hr>
-                <p class="text-black">Please, find below the order information. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+                <p class="text-black text-center">Please, find below the order information. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-7">
+            <div class="col-12 col-lg-7 mx-auto">
                 <div class="order-confirmation-wrapper p-2 border">
                     <div class="row">
                         <div class="col">
@@ -60,11 +60,6 @@
                     {% for item in order.orderdetails.all %}
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <!--<p class="small mb-0 text-black font-weight-bold">
-                                {{ item.product.team }}{% if item.size %} - Size {{ item.size|upper }}{% else %}N/A{% endif %}
-                                <br>
-                                {{ item.product.team }}{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
-                            </p>-->
                             <p class="small mb-0 text-black font-weight-bold">                                
                                 {{ item.product.team }}{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
                             </p>
@@ -202,7 +197,7 @@
             </div>
         </div>
         <div class="row">
-			<div class="col-12 col-lg-7 text-right">
+			<div class="col-12 col-lg-7 text-right mx-auto">
                 {% if from_profile %}
                     <a href="{% url 'profile' %}" class="btn btn-black my-2">
                         <span class="icon mr-2">
@@ -220,5 +215,6 @@
                 {% endif %}
 			</div>
 		</div>
+        <hr>
     </div>
 {% endblock %}

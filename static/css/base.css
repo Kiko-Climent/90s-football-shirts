@@ -66,10 +66,6 @@ body {
     width: 1.5rem;
 }
 
-/*.container-landing-page {
-    background: #ffefd582;
-}*/
-
 .logo-font {
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -118,7 +114,7 @@ body {
 
 .btn-outline-black {
     background: #e9f0f0;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black !important;
     border: 2px solid black;
     border-radius: 2rem;
 }
@@ -257,7 +253,7 @@ a.category-badge > span.badge:hover {
 
 
 
-/* --------------------------------- products */
+/* --------------------------------- Products */
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -306,7 +302,7 @@ a.category-badge > span.badge:hover {
 
 .btn-rating {
     background: black;
-    color: #e9f0f0 !important; /* use important to override link colors for <a> elements */
+    color: #e9f0f0 !important;
     border: 2px solid black;
     border-radius: 2rem;
 }
@@ -453,14 +449,6 @@ a.category-badge > span.badge:hover {
         height: calc(100vh - 116px);
     }
 }
-
-/* MAKE QUANTITY BUTON TRANSPARENT ???????
-.qty-buton {
-    background-color: transparent;
-    color: #000;
-    font-weight: bold;
-}
-*/
 
 .container-404 {
     background: url('https://res.cloudinary.com/dzlveh6fi/image/upload/v1707468455/baggio_cfx3ob.webp');
