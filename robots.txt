@@ -3,4 +3,4 @@ Disallow: /accounts/
 Disallow: /shopping_cart/
 Disallow: /purchase/
 Disallow: /wishlist/
-Sitemap: <!-- DEPLOYED VERSION + /sitemap.xml
+Sitemap: https://nineties-football-shirts-8ef65f488fe9.herokuapp.com/sitemap.xml
