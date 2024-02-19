@@ -109,6 +109,7 @@ body {
     background: black !important;
     border-radius: 2rem;
     color: white !important;
+    letter-spacing: 2px;
 
 }
 
@@ -154,9 +155,8 @@ body {
 
 .bg-black {
     background: #000 !important;
-    border-radius: 5rem;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .overlay {
