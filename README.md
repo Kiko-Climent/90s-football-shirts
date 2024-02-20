@@ -514,3 +514,9 @@ For the development of the project, Chrome and Chrome DevTools were used to assi
 
 ## Compatibility Testings:
 In addition to Chrome emulated devices, a MacBook Air, a Samsung A22, and an iPhone 12 were also used to test the project.
+
+## BUGS
+
+### Bugs Fixed
+
+### Unfixed Bugs
