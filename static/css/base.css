@@ -18,6 +18,17 @@ body {
     font-family: 'Kanit', 'sans-serif';
 }
 
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*ul > .shopping-cart-item {
+    
+    margin-left: 2px;
+  }
+*/  
+
 /*------------------------- NEW LANDING PAGE -- */
 .callout-container {
     height: 100vh;

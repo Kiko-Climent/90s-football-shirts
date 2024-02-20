@@ -1,6 +1,7 @@
 from django.db import models
 from products.models import Product
 
+
 class Inquiry(models.Model):
     INQUIRY_CHOICES = [
         ('GENERAL', 'General Inquiry'),
@@ -18,4 +19,8 @@ class Inquiry(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.subject_type} - {self.product}" if self.subject_type == 'PRODUCT' else self.subject_type
+        return (
+            f"{self.subject_type} - {self.product}"
+            if self.subject_type == 'PRODUCT'
+            else self.subject_type
+        )

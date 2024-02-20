@@ -3,6 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from products.models import Product
 from profiles.models import UserProfile
 
+
 class Rating(models.Model):
     VALUE_CHOICES = [
         (1, '1 star'),
@@ -12,7 +13,8 @@ class Rating(models.Model):
         (5, '5 stars'),
     ]
 
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='ratings')
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name='ratings')
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     value = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)],

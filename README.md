@@ -331,28 +331,28 @@ _Facebook_ was used as plattform to develope the _Social media marketing_. Due t
 # Technologies:
 ## Languajes:
 
-- [HTML]()
-- [CSS]()
-- [JavaScript]()
-- [Python]()
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://www.javascript.com/)
+- [Python](https://www.python.org/)
 
 ## Libraries and Frameworks:
 
-- [Gitpod]()
-- [Heroku]()
-- [Github]()
-- [Cloudinary]()
-- [ElephantSQL]()
-- [Stripe]()
-- [Miro]()
-- [Bootstrap]()
-- [Django]()
-- [Django-Allauth]()
-- [Django-Crispy Forms]()
-- [Django-Countries]()
-- [Font Awesome]()
-- [Gunicorn]()
-- [Pillow]()
+- [Gitpod](https://www.gitpod.io/) The entire project was deloped with Gitpod.
+- [Heroku](https://www.heroku.com/) Used to Deploy and to host the project.
+- [Github](https://github.com/) Used for the version control and to develope the Agile metodology.
+- [Cloudinary](https://cloudinary.com/) For the storage of all media and static files.
+- [ElephantSQL](https://www.elephantsql.com/) Used as database.
+- [Stripe](https://stripe.com/en-ie) Used to manage the online payments.
+- [Miro](https://miro.com/app/dashboard/) To create dabatabase schema and flow schema.
+- [Bootstrap](https://getbootstrap.com/) To aply styles to the project.
+- [Django](https://www.djangoproject.com/) Python framework used to create and develope the whole project.
+- [Django-Allauth](https://docs.allauth.org/en/latest/) Used for the authentication, registrartion and account management.
+- [Django-Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) To control the rendering behavior of the forms.
+- [Django-Countries](https://pypi.org/project/django-countries/) To provie a country field for models.
+- [Font Awesome](https://fontawesome.com/) Used to add icon to the site.
+- [Gunicorn](https://gunicorn.org/) WSGI server for running Python web applications.
+- [Pillow](https://pypi.org/project/pillow/) Python Imaging Library fork that provides easy-to-use methods for opening, manipulating, and saving various image file formats.
 
 
 # Testing
@@ -507,7 +507,10 @@ _Facebook_ was used as plattform to develope the _Social media marketing_. Due t
 ### Delete Product:
 | Feature | Test  | Expected Result | Result |
 | -------------| ----- | ----- | :----: |
-| Delete Product | Click on Delete in the Product Detail | Delete product / Redirect to All Products / Success Toast |
+| Delete Product | Click on Delete in the Product Detail | Delete product / Redirect to All Products / Success Toast | Pass |
 
+## Functionality testings:
+For the development of the project, Chrome and Chrome DevTools were used to assist with debugging. Responsive testing was carried out using Chrome's functionality to emulate different types of devices.
 
-
+## Compatibility Testings:
+In addition to Chrome emulated devices, a MacBook Air, a Samsung A22, and an iPhone 12 were also used to test the project.

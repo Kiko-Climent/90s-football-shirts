@@ -8,7 +8,6 @@ class UserProfileForm(forms.ModelForm):
         exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
-        
         super().__init__(*args, **kwargs)
         placeholders = {
             'default_phone_number': 'Phone Number',
@@ -27,5 +26,8 @@ class UserProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black profile-form-input'
+            self.fields[field].widget.attrs['class'] = (
+                'border-black profile-form-input'
+            )
+
             self.fields[field].label = False

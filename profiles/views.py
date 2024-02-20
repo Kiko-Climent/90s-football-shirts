@@ -7,6 +7,7 @@ from .forms import UserProfileForm
 
 from purchase.models import Order
 
+
 @login_required
 def profile(request):
     """ A view for the user's profile. """
@@ -30,6 +31,7 @@ def profile(request):
     }
 
     return render(request, template, context)
+
 
 def past_orders(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)

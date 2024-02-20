@@ -8,13 +8,15 @@ from profiles.models import UserProfile
 
 from .forms import RatingForm
 
+
 @login_required
 def rate_product(request, product_id):
     product = Product.objects.get(pk=product_id)
     user_profile = request.user.userprofile
 
     # Check if the user has already rated the product
-    existing_rating = Rating.objects.filter(product=product, user=user_profile).first()
+    existing_rating = Rating.objects.filter(
+        product=product, user=user_profile).first()
 
     if request.method == 'POST':
         form = RatingForm(request.POST)
@@ -33,10 +35,14 @@ def rate_product(request, product_id):
                 rating.save()
                 messages.success(request, 'Your rating has been added')
 
-            return redirect ('product_detail', product_id=product_id)
+            return redirect('product_detail', product_id=product_id)
         else:
             messages.error(request, 'Please select a value')
     else:
         form = RatingForm(instance=existing_rating)
-    
-    return render(request, 'ratings/rate_product.html', {'form': form, 'product': product})
+
+    return render(
+        request,
+        'ratings/rate_product.html',
+        {'form': form, 'product': product}
+    )
