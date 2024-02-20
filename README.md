@@ -515,8 +515,98 @@ For the development of the project, Chrome and Chrome DevTools were used to assi
 ## Compatibility Testings:
 In addition to Chrome emulated devices, a MacBook Air, a Samsung A22, and an iPhone 12 were also used to test the project.
 
-## BUGS
+## HTML testings:
 
-### Bugs Fixed
+## CSS Testings:
+
+## Javascript Testings:
+
+## Python Testings:
+
+
+## Bugs
+
+### Solved Bugs:
+
+***ADMIN PANEL***
+I had an issue that took up a significant part of my last afternoon before submitting the project. In my live version, when redirecting to the admin panel, the page seemed not to pick up the static files, having this appearance:
+
+![Image](media/readme_media/bug.png)
+
+It was very weird cause all the ther static and media files were displaying well. After many research attempts, I reorganized the installed apps of my project within the settings file. I deleted all the static files belonging to the admin folder inside Cloudinary. None of this seemed to work, but after searching for solutions with two different tutors, we saw that deleting DISABLE_COLLECTSTATIC on Heroku made everything work well."
+
+***CIRCULAR IMPORT***
+While creating the functionality for ratings on the page, I had to make modifications to the Product model by creating a function to calculate an average of user ratings. When performing migrations, they were giving an error until I discovered that a **circular import** was occurring with the rating models since I was trying to import the _Rating_ model at the topl level of the file. To solve this, I performed a **local import** in the 'avg_rating' function in the Products model
+
+***SIZES NOT GETTING RENDERED***
+I also found a bug when adding products to the shopping cart. When a product was selected a with a specific size, the size was not getting rendered in the shopping cart. As I mentioned earlier, the page was initially created with the possibility of adding eventually products that did not have sizes, which is why in the Product model, I set initially the field _has sizes = False._ So all the products added from the fixtures filed didnt get the sizes rendered. Once the admin front was created in order to add and edit new products i could, with the admin credentials, edit the default field _sizes_ to yes.
+
+***404 ERROR WHEN ADDING ITEMS TO WIHSLIST WITH NEW REGISTERED USERS***
+During the development process and in the live version, I found that new registered users, when trying to access their wishlist without having added any products to the list, encountered a 404 error. The problem was resolved once products were added to the wishlist, even if the list remained empty, the error message did not appear. However, the issue persisted for new registrations.
+
+To address this bug, I created a **try/except** block to handle the _Wishlist does Not Exist_ in my code, and thus, I was able to eliminate it.
+
+![Runtime](media/readme_media/bug3.png)
+
+***SMTP***
+When implementing the functionality to send email notifications to users via Gmail, I found that _SMTP_ was not compatible with the current version of Django I was using. Initially, I tried to update the Django version, but this led to the need to update all my installed libraries and ElephantSQL.ç
+
+![Bug2](media/readme_media/bug2.1.png)
+
+Ultimately, I decided to roll back, reinstall the versions I had of Django and its corresponding packages, and include a runtime.txt file with the Django version required for SMTP to continue without issues in the development process
+
+![Bug2.1](media/readme_media/bug2.png)
 
 ### Unfixed Bugs
+
+# Deployment
+The version control to develope this site was done with _Gitpod_ and then deplyed to Heroku following those steps:
+
+* Log in to Heroku app
+* Create New App
+* Select Region (Europe)
+* Then Click on create App
+
+The new app created in Heroku has to be linked to the database, for that i created a new one in ElephanSQL:
+
+* Log in to Elephant SQL
+* Create New Instance
+* Selected _Tiny Turtle_ as plan
+* Then select region (EU-NORTH)
+* Review
+* Create Instance
+* Back to the dashboard in ElepantSQL, click on instance name
+* Copy the database URL
+* Back again to Heroku, move to settings, in Config Vars add DATABASE_URL and paste the URL from ElephantSQL
+* Moving now to Gitpod, install dj-database_url and psycopg2 to connect to the external database
+* Open the terminal and freeze requirements: pip3 freeze > requirements.txt
+* Import dj_database_url in settings and update the database
+* Then migrate the database
+* Create the superuser
+* Install Gunicorn
+* Create Procfile
+* Commit and push to GitHub
+* Moving to Heroku, connect to GitHub Repository
+* Deploy from branch
+* Finally Open App
+
+# Credits
+
+For the development of the website, I found great inspiration in other pages that also specialize in the sale of retro/vintage football jerseys. Pages like _vintagefootball.shop_ or _retrojerseys.us_ were very helpful. I wanted to distinguish myself a bit from them by offering sports kits specifically focused on the 90s.
+
+The product photos were taken from _retrojerseys.us_ and _myretrojerseys.com._
+
+The walkthrough project _Boutique Ado_ and _I think therefore I blog_ were immensely helpful in developing some of the website's functionalities, such as connecting with Stripe, shopping cart, user validation, or checkout, in my case, Purchase.
+
+For the implementation of the Agile methodology, _Kasia Boguck's_ videos were of great help.
+
+Regarding the Readme, I relied on the one _Pauline Rugwevera_ prepared for her e-commerce PP5.
+
+I wouldn't like to finish without mentioning the exceptional work of the tutors at Code Institute, especially _Oisin, Jason, Gemma, or Sean._ Without them, the elaboration of this project would have been much more difficult. Thank you very much!
+
+
+
+
+
+
+

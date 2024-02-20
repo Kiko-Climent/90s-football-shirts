@@ -18,16 +18,14 @@ body {
     font-family: 'Kanit', 'sans-serif';
 }
 
-ul {
+
+.nav-mobile {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
 }
-/*ul > .shopping-cart-item {
-    
-    margin-left: 2px;
-  }
-*/  
+  
 
 /*------------------------- NEW LANDING PAGE -- */
 .callout-container {
