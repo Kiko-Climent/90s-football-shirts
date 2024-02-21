@@ -1,6 +1,6 @@
 # 90's FOOTBALL SHIRTS
 ## Introduction
-90's Football Shirts is a fictional site designed, developed and implemented with _Django_, _Python_, _HTML_, _CSS_, _JQuery_ and _JavaScript_. It is a vintage sports clothing store specializing in jerseys and tricots of football teams from the 90s.
+90's Football Shirts is a fictional site designed, developed and implemented with _Python_, _HTML_, _CSS_, and _JavaScript_. It is a vintage sports clothing store specializing in jerseys and tricots of football teams from the 90s.
 
 The Deployed version of the site can be found [Here](https://nineties-football-shirts-8ef65f488fe9.herokuapp.com/)
 
@@ -15,6 +15,7 @@ The target audience of 90's Football Club extends beyond individuals interested 
 ## User Stories
 
 **EPIC: Registration and Profile**
+
 * As a _Site User_ I can be able to _register_ a new account, so i have a _personal account and profile_
 * As a _Site User_ I can easily *log in* and _log out_ so i can have _access to my personal account_
 * As a _Site User_ I can _recover_ my password so i can _get access to my account again_
@@ -41,6 +42,7 @@ The target audience of 90's Football Club extends beyond individuals interested 
 * As a _Site Admin_ I can _delete products_ so that _I can update the stock of the shop_
 
 **EPIC: Shopping Cart**
+
 * As a _Site User_ I can _edit the items in my shopping cart_ so that _I don't have to come back to the product detail_
 * As a _Site User_ I can _have a detailed view of prices_ so i can _be aware about shipping costs and discounts_
 * As a _Site User_ i can have a detailed view of the products in my cart so _I know what I'm about to purchase_
@@ -66,16 +68,19 @@ The target audience of 90's Football Club extends beyond individuals interested 
 * As a _Site Admin_ I can _receive messages from users_ so that _I can be aware of any Inquire_
 
 **EPIC: Wishlist**
+
 * As a _Site User_ I can _have a wishlist_ so that _I can have a list of items that i like_
 * As a _Site User_ I can _add and remove items from my wishlist_ so that _i have a personalized list_
 
 **EPIC: Ratings**
+
 * As a _Site User_ i can _see a ratings field_ so _I know which are the favourite items from other users_
 * As a _Site User_ I can rate a product so that _I can leave my feedback for other users_
 * As a _Site User_ I can _update my ratings_ so that _I can reflect any changes in my experience_
 
 ### A list of detailed _Acceptance Criteria_ and _Tasks_ for each User Story can be found here:
 * [Project: 90's Football Shirts](https://github.com/users/Kiko-Climent/projects/8)
+* An _Agile metodologie_ was implemented in order to develope the whole project.
 
 ### Strategy
 
@@ -136,7 +141,7 @@ The font used for the development of the site was _Kanit_
 ...
 # Features
 ## Homepage:
-The landing page, where the user initially arrives, serves as the starting point of the website. On this page, users encounter various features with which they can interact
+The landing page, where the user initially arrives, serves as the starting point of the website. On this page, users encounter various features to interact with.
 ![Landing Page](media/readme_media/landing_page.png)
 
 ### Header and Navigation:
@@ -534,6 +539,7 @@ After testing with [W3](https://validator.w3.org/) found the following errors:
 ## CSS Testings:
 
 The CSS files were tested using [Jigsaw](https://jigsaw.w3.org/css-validator/) were no errors were found.
+[90's Football Shirts Jigsaw](media/readme_media/jigsaw_validator.png)
 
 ## Javascript Testings:
 
@@ -579,8 +585,6 @@ When implementing the functionality to send email notifications to users via Gma
 Ultimately, I decided to roll back, reinstall the versions I had of Django and its corresponding packages, and include a runtime.txt file with the Django version required for SMTP to continue without issues in the development process
 
 ![Bug2.1](media/readme_media/bug2.png)
-
-### Unfixed Bugs
 
 # Deployment
 The version control to develope this site was done with _Gitpod_ and then deplyed to Heroku following those steps:
