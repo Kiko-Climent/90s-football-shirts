@@ -586,6 +586,11 @@ Ultimately, I decided to roll back, reinstall the versions I had of Django and i
 
 ![Bug2.1](media/readme_media/bug2.png)
 
+### Unfixed Bugs:
+
+Just discovered last minute that when adding items to the wishlist, success messages dont show up untill we move into another page
+
+
 # Deployment
 The version control to develope this site was done with _Gitpod_ and then deplyed to Heroku following those steps:
 
