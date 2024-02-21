@@ -103,8 +103,15 @@ _90's Football Club_ is a website that seeks to unite the passion for sports, sp
 ## Design
 
 <details>
-<summary>Click to review the the wireframes
-![]()
+<summary>Click to review the the wireframes: </summary>
+
+![home](media/readme_media/wireframes_home.png)
+![all_products](media/readme_media/wireframes_products.png)
+![product_detal](media/readme_media/wirefrrames_product_detail.png)
+![shopping_cart](media/readme_media/wireframes_shoppingcart.png)
+![purchase](media/readme_media/wireframes_purchase.png)
+![wishlist](media/readme_media/wireframes_wishlist.png)
+
 </details>
 
 ## E-Comerce Type
@@ -517,12 +524,28 @@ In addition to Chrome emulated devices, a MacBook Air, a Samsung A22, and an iPh
 
 ## HTML testings:
 
+After testing with [W3](https://validator.w3.org/) found the following errors:
+* no closing tag for _strong_: just added </> 
+* _w-100_ inside of an _id attribute_ changed to a _class= w-100_ and deleted the id=w-100
+* _aria-labelledby attribute_ with different name as the _id_, changed the name of the aria-labelledby to match with the id name
+* found 2 elements with same _id_, just changed one of them in order to by both unique.
+* Also found a warning: _The type attribute is unnecessary for JavaScript resources_
+
 ## CSS Testings:
+
+The CSS files were tested using [Jigsaw](https://jigsaw.w3.org/css-validator/) were no errors were found.
 
 ## Javascript Testings:
 
+No major errors were found after testing the scripts in [JShint](https://jshint.com/)
+
 ## Python Testings:
 
+Python was tested using [Pep8](https://pep8ci.herokuapp.com/), found some warnings most of them were concerning blank lines containing white spaces, trailing whitespace, lines being too long or expected 2 blank lines and found 1. All warning were fixed.
+
+## Lighhouse:
+To assess accessibility on the website, the deployed version utilized the _Lighthouse_ tool.
+![Lighthouse](media/readme_media/lighthouse.png)
 
 ## Bugs
 

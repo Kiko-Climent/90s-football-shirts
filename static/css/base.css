@@ -30,7 +30,6 @@ body {
 /*------------------------- NEW LANDING PAGE -- */
 .callout-container {
     height: 100vh;
-   /* background: url('https://res.cloudinary.com/dzlveh6fi/image/upload/v1706519126/maradona94_tvferj.webp') no-repeat center center fixed;*/
     background-size: cover;
     display: flex;
     align-items: center;
@@ -261,7 +260,6 @@ a.category-badge > span.badge:hover {
 }
 
 
-
 /* --------------------------------- Products */
 .btn-file {
     position: relative;
@@ -349,7 +347,6 @@ a.category-badge > span.badge:hover {
 
 .allauth-form-inner-content input {
     border-color: #000;
-    /* border-radius: 0; */
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
@@ -457,10 +454,6 @@ a.category-badge > span.badge:hover {
     body {
         height: calc(100vh - 116px);
     }
-}
-
-.container-404 {
-    background: url('https://res.cloudinary.com/dzlveh6fi/image/upload/v1707468455/baggio_cfx3ob.webp');
 }
 
 .logo-404 {

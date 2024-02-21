@@ -46,21 +46,6 @@
                         </a>
                     </p>
                     {% endif %}                   
-                    <!--<small class=" text-muted mt-4"><i class="fas fa-star mr-1"></i>Ratings: </small>
-                    {% if product_rating %}
-                        <small class="text-muted">{{ product_rating|floatformat:1 }} / 5</small>
-                    {% else %}
-                        <small class="text-muted">No Rating</small>
-                    {% endif %}
-                    {% if request.user.is_authenticated %}
-                        Form for submitting a new rating
-                        <form method="POST" action="{% url 'rating_product' product.id %}">
-                            {% csrf_token %}
-                            {{ rating_form.as_p }}
-                            <button type="submit" class="btn btn-primary btn-sm mt-3">Submit Rating</button>
-                        </form>
-                    {% endif %}-->
-                    
                     <!-- Product Ratings Section -->
                     <small class="text-muted mt-4" id="ratings-text" style="cursor: pointer;">
                         <i class="fas fa-star mr-1"></i>Ratings:

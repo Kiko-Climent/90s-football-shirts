@@ -23,6 +23,7 @@ def wishlist(request):
     }
     return render(request, 'wishlist/wishlist.html', context)
 
+
 @login_required
 def add_to_wishlist(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
@@ -37,7 +38,7 @@ def add_to_wishlist(request, item_id):
     # Product added to the wishlist
     messages.success(request, f'Added {product.team} to your wishlist.')
     return JsonResponse({'in_wishlist': False})
-    
+
 
 @login_required
 def remove_from_wishlist(request, item_id):
@@ -45,5 +46,5 @@ def remove_from_wishlist(request, item_id):
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
     wishlist.products.remove(product)
     messages.success(request, f'Removed {product.team} from your wishlist.')
-    
+
     return redirect('wishlist')
